@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>three.js webgl - post processing - pixelation</title>
+	<title>Colin VanderMeer</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link type="text/css" rel="stylesheet" href="style.css">
@@ -11,6 +11,13 @@
 <body>
 
 	<canvas id="bg"></canvas>
+
+	<main class="center" style="display: none;">
+		<div style="text-align: center;">
+			<h1>I'm Colin VanderMeer</h1>
+			<h2>The smartest idiot to ever touch a computer</h2>
+		</div>
+	</main>
 
 	<script type="module">
 
@@ -25,27 +32,27 @@
 
 		let camera, scene, renderer, composer, crystalMesh, clock, aigisModel;
 
-		const dracoLoader = new DRACOLoader();
-			dracoLoader.setDecoderPath( 'jsm/libs/draco/gltf/' );
 
-			const loader = new GLTFLoader();
-			loader.setDRACOLoader( dracoLoader );
-			loader.load( 'Aigis.glb', function ( gltf ) {
+		const loader = new GLTFLoader();
+		loader.load( 'Aigis.glb', function ( gltf ) {
 
-				aigisModel = gltf.scene;
-				aigisModel.position.set( 0, -0.9, 0 );
-				aigisModel.scale.set( 0.01, 0.01, 0.01 );
-				scene.add( aigisModel );
+			aigisModel = gltf.scene;
+			aigisModel.position.set( 0, -0.9, 0 );
+			aigisModel.scale.set( 0.01, 0.01, 0.01 );
+			scene.add( aigisModel );
 
-			}, undefined, function ( e ) {
+			document.body.style.backgroundColor = "gold";
+			document.querySelector('.center').style.display = "flex";
 
-				console.error( e );
+			animate();
 
-			} );
+		}, undefined, function ( e ) {
 
+			console.error( e );
+
+		} );
 
 		init();
-		animate();
 
 		function init() {
 
