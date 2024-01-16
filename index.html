@@ -20,7 +20,29 @@
 		import { RenderPixelatedPass } from 'three/addons/postprocessing/RenderPixelatedPass.js';
 		import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
-		let camera, scene, renderer, composer, crystalMesh, clock;
+		import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+		import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+		let camera, scene, renderer, composer, crystalMesh, clock, aigisModel;
+
+		const dracoLoader = new DRACOLoader();
+			dracoLoader.setDecoderPath( 'jsm/libs/draco/gltf/' );
+
+			const loader = new GLTFLoader();
+			loader.setDRACOLoader( dracoLoader );
+			loader.load( 'Aigis.glb', function ( gltf ) {
+
+				aigisModel = gltf.scene;
+				aigisModel.position.set( 0, -0.9, 0 );
+				aigisModel.scale.set( 0.01, 0.01, 0.01 );
+				scene.add( aigisModel );
+
+			}, undefined, function ( e ) {
+
+				console.error( e );
+
+			} );
+
 
 		init();
 		animate();
@@ -48,7 +70,7 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 
 			composer = new EffectComposer( renderer );
-			const renderPixelatedPass = new RenderPixelatedPass( 6, scene, camera );
+			const renderPixelatedPass = new RenderPixelatedPass( 5, scene, camera );
 			composer.addPass( renderPixelatedPass );
 
 			const outputPass = new OutputPass();
@@ -56,57 +78,7 @@
 
 			window.addEventListener( 'resize', onWindowResize );
 
-			// textures
-
-			const loader = new THREE.TextureLoader();
-			const texChecker = pixelTexture( loader.load( 'checker.png' ) );
-			const texChecker2 = pixelTexture( loader.load( 'checker.png' ) );
-			texChecker.repeat.set( 3, 3 );
-			texChecker2.repeat.set( 1.5, 1.5 );
-
 			// meshes
-
-			const boxMaterial = new THREE.MeshPhongMaterial( { map: texChecker2 } );
-
-			function addBox( boxSideLength, x, z, rotation ) {
-
-				const mesh = new THREE.Mesh( new THREE.BoxGeometry( boxSideLength, boxSideLength, boxSideLength ), boxMaterial );
-				mesh.castShadow = true;
-				mesh.receiveShadow = true;
-				mesh.rotation.y = rotation;
-				mesh.position.y = boxSideLength / 2;
-				mesh.position.set( x, boxSideLength / 2 + .0001, z );
-				scene.add( mesh );
-				return mesh;
-
-			}
-
-			addBox( .4, 0, 0, Math.PI / 4 );
-			addBox( .5, - .5, - .5, Math.PI / 4 );
-
-			const planeSideLength = 2;
-			const planeMesh = new THREE.Mesh(
-				new THREE.PlaneGeometry( planeSideLength, planeSideLength ),
-				new THREE.MeshPhongMaterial( { map: texChecker } )
-			);
-			planeMesh.receiveShadow = true;
-			planeMesh.rotation.x = - Math.PI / 2;
-			scene.add( planeMesh );
-
-			const radius = .2;
-			const geometry = new THREE.IcosahedronGeometry( radius );
-			crystalMesh = new THREE.Mesh(
-				geometry,
-				new THREE.MeshPhongMaterial( {
-					color: 0x68b7e9,
-					emissive: 0x4f7e8b,
-					shininess: 10,
-					specular: 0xffffff
-				} )
-			);
-			crystalMesh.receiveShadow = true;
-			crystalMesh.castShadow = true;
-			scene.add( crystalMesh );
 
 			// lights
 
@@ -146,25 +118,15 @@
 
 			const t = clock.getElapsedTime();
 
-      // console.log(camera.bottom);
-      // console.log(camera.top);
-      // console.log(camera.left);
-      // console.log(camera.right);
-      // console.log(camera.zoom);
-      // console.log(camera.position);
-      // console.log(camera.rotation);
-      // console.log(camera.up);
-
-
-			crystalMesh.material.emissiveIntensity = Math.sin( t * 3 ) * .5 + .5;
-			crystalMesh.position.y = .7 + Math.sin( t * 2 ) * .05;
-			crystalMesh.rotation.y = stopGoEased( t, 2, 4 ) * 2 * Math.PI;
+			// aigisModel.material.emissiveIntensity = Math.sin( t * 3 ) * .5 + .5;
+			aigisModel.position.y = -0.9 + Math.sin( t * 2 ) * .05;
+			aigisModel.rotation.y = stopGoEased( t, 2, 4 ) * 2 * Math.PI;
 
 			const rendererSize = renderer.getSize( new THREE.Vector2() );
 			const aspectRatio = rendererSize.x / rendererSize.y;
 
-      pixelAlignFrustum( camera, aspectRatio, Math.floor( rendererSize.x / 6 ),
-        Math.floor( rendererSize.y / 6 ) );
+      pixelAlignFrustum( camera, aspectRatio, Math.floor( rendererSize.x / 5 ),
+        Math.floor( rendererSize.y / 5 ) );
 
 			composer.render();
 
