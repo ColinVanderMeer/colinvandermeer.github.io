@@ -24,6 +24,16 @@ main {
 h1 {
   font-size: 2cm;
 }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.7cm;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.3cm;
+  }
+}
 .center {
   display: flex;
   justify-content: center;
