@@ -1,8 +1,20 @@
 {
+  "name": "colinvandermeer.github.io",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://colinvandermeer.github.io/",
+  "type": "module",
+  "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
+    "dev": "vite",
+    "build": "vite build"
+  },
   "dependencies": {
     "three": "^0.160.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "vite": "^5.0.11"
   }
 }
