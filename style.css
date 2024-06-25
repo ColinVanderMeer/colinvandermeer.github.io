@@ -20,6 +20,12 @@ main {
 h1 {
   font-size: 2cm;
 }
+h2 {
+  font-size: 1.25cm;
+}
+h3 {
+  font-size: 0.8cm;
+}
 @media (max-width: 500px) {
   h1 {
     font-size: 1.7cm;
