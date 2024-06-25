@@ -4,12 +4,8 @@
   text-decoration: none;
   text-shadow: 2px 2px 2px black; /* Add this line */
 }
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 body {
+  height: 100%;
   margin: 0;
   background-color: #151729;
 }
@@ -39,4 +35,23 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.container>* {
+  flex: 1 1 50%;
+}
+#bg {
+  flex-basis: 33%;
+  position: fixed;
+  right: 1;
+  top: 0;
+  bottom: 0;
+}
+#main {
+  flex-basis: 66%;
+  overflow-y: auto;
 }

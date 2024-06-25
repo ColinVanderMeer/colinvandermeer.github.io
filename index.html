@@ -8,16 +8,20 @@
 	<link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
-	<canvas id="bg"></canvas>
-
-	<main class="center" style="display: none;">
-		<div style="text-align: center;">
-			<h1>I'm Colin VanderMeer</h1>
-			<h2>The smartest idiot to ever touch a computer</h2>
+<body style="display: flex;">
+    <div class="container">
+		<div id="main">
+            <div style="text-align: center;">
+                <h1>I'm Colin VanderMeer</h1>
+                <h2>The smartest idiot to ever touch a computer</h2>
+            </div>
+        </div>
+		<div class="content">
+	        <canvas id="bg"></canvas>
 		</div>
-	</main>
+    </div>
+
+</div>
 
 	<script type="module">
 
@@ -41,7 +45,6 @@
 			scene.add( aigisModel );
 
 			document.querySelector('#bg').style.backgroundColor = "gold";
-			document.querySelector('.center').style.display = "flex";
 
 			animate();
 
@@ -55,7 +58,7 @@
 
 		function init() {
 
-			const aspectRatio = window.innerWidth / window.innerHeight;
+			const aspectRatio = window.innerWidth/3 / window.innerHeight;
 
 			camera = new THREE.OrthographicCamera( - aspectRatio, aspectRatio, 1, - 1, 0.1, 10 );
 			camera.position.y = 2 * Math.tan( Math.PI / 6 );
@@ -73,7 +76,7 @@
       });
 			renderer.shadowMap.enabled = true;
 			//renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setSize( window.innerWidth/3, window.innerHeight );
 
 			composer = new EffectComposer( renderer );
 			const renderPixelatedPass = new RenderPixelatedPass( 5, scene, camera );
@@ -108,13 +111,13 @@
 
 		function onWindowResize() {
 
-			const aspectRatio = window.innerWidth / window.innerHeight;
+			const aspectRatio = window.innerWidth/3 / window.innerHeight;
 			camera.left = - aspectRatio;
 			camera.right = aspectRatio;
 			camera.updateProjectionMatrix();
 
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			composer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setSize( window.innerWidth/3, window.innerHeight );
+			composer.setSize( window.innerWidth/3, window.innerHeight );
 
 		}
 
