@@ -23,6 +23,7 @@ main {
 }
 h1 {
   font-size: 2cm;
+  margin-bottom: 1cm;
 }
 @media (max-width: 500px) {
   h1 {
@@ -39,4 +40,11 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.eightyeight {
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: -webkit-optimize-contrast;
+  padding: 2px;
 }
