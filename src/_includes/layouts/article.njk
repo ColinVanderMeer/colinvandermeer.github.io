@@ -8,7 +8,7 @@ layout: page
   }
 
   .content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 1px 20px;
     background-color: #5e65ad;
@@ -54,7 +54,7 @@ layout: page
   <article class="article">
     <h1>{{ title }}</h1>
     <small>
-      Published: <time>{{ date }}</time>
+      Published: <time>{{ date | date_to_datetime }}</time>
       <a class="category" href="/blog/{{ category }}">{{ category }}</a>
     </small>
     {{ content | safe }}
