@@ -1,0 +1,62 @@
+<!-- ---
+layout: page
+--- -->
+
+<style>
+  body {
+    background-color: #151729;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1px 20px;
+    background-color: #5e65ad;
+    border-radius: 20px;
+  }
+
+  .article {
+    margin: 40px 0;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+  }
+
+  small {
+    display: block;
+    margin: 0 0 20px;
+  }
+
+  time {
+    font-size: 0.8em;
+    color: #222;
+  }
+
+  .category {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 10px;
+    background: #333;
+    color: #fff;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .category:hover {
+    background: #666;
+  }
+</style>
+
+<div class="content">  
+  <article class="article">
+    <h1>{{ title }}</h1>
+    <small>
+      Published: <time>{{ date }}</time>
+      <a class="category" href="/blog/{{ category }}">{{ category }}</a>
+    </small>
+    {{ content | safe }}
+  </article>
+</div>
