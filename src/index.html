@@ -1,3 +1,6 @@
+---
+permalink: /index.html
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,7 @@
 	<title>Colin VanderMeer</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<link type="text/css" rel="stylesheet" href="style.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -17,11 +20,9 @@
 			<h1>I'm Colin VanderMeer</h1>
 			<a href="https://en.wikipedia.org/wiki/Non-binary_gender"> <img class="eightyeight" src="images/nb_noproblem.jpg" height="62" /> </a>
 			<img class="eightyeight" src="images/any_browser.gif" height="62" title="Though you will have issues on ladybird..."/>
-			<!-- <img class="eightyeight" src="images/cdaweb.gif" height="62" /> -->
 			<a href="https://archlinux.org/"> <img class="eightyeight" src="images/archlinux.gif" height="62" title="If it doesn't have the aur I don't run it on desktop"/> </a>
 			<br>
 			<a href="https://godotengine.org/"> <img class="eightyeight" src="images/godot.png" height="62" /> </a>
-			<!-- <img class="eightyeight" src="images/right_to_repair.jpg" height="62" /> -->
 			<a href="https://rockway.ca/feedbluebell"> <img class="eightyeight" src="images/feedBluebell.png" height="62" /> </a>
 			<a href="https://github.com/ColinVanderMeer"> <img class="eightyeight" src="images/github.png" height="62" /> </a>
 		</div>
@@ -41,7 +42,7 @@
 
 
 		const loader = new GLTFLoader();
-		loader.load( 'Aigis.glb', function ( gltf ) {
+		loader.load( '3d/Aigis.glb', function ( gltf ) {
 
 			aigisModel = gltf.scene;
 			aigisModel.position.set( 0, -0.9, 0 );
