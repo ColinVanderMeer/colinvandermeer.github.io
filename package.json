@@ -5,10 +5,11 @@
   "homepage": "https://colinvandermeer.github.io/",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build && cp 404.html dist/404.html",
-    "deploy": "gh-pages -d dist",
-    "dev": "vite",
-    "build": "vite build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d _site",
+    "dev": "eleventy --serve",
+    "prebuild": "rm -rf _site",
+    "build": "eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
