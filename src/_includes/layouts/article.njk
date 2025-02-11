@@ -3,14 +3,6 @@ layout: page
 ---
 
 <style>
-  .content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1px 20px;
-    background-color: #5e65ad;
-    border-radius: 20px;
-  }
-
   .article {
     margin: 40px 0;
   }
@@ -46,15 +38,14 @@ layout: page
   }
 </style>
 
-<div class="content">  
-  <p style="text-align: left;">
-    <a href="/blog/">&lt;-- Go Back</a>
+  
+<p style="text-align: left;">
+  <a href="/blog/">&lt;-- Go Back</a>
+</p>
+<article class="article">
+  <h1>{{ title }}</h1>
+  <p>
+    Published: <time>{{ date | date_to_datetime }}</time>
   </p>
-  <article class="article">
-    <h1>{{ title }}</h1>
-    <p>
-      Published: <time>{{ date | date_to_datetime }}</time>
-    </p>
-    {{ content | safe }}
-  </article>
-</div>
+  {{ content | safe }}
+</article>
