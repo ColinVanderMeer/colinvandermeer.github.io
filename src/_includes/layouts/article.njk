@@ -1,12 +1,8 @@
-<!-- ---
+---
 layout: page
---- -->
+---
 
 <style>
-  body {
-    background-color: #151729;
-  }
-
   .content {
     max-width: 1000px;
     margin: 0 auto;
@@ -51,12 +47,14 @@ layout: page
 </style>
 
 <div class="content">  
+  <p style="text-align: left;">
+    <a href="/blog/">&lt;-- Go Back</a>
+  </p>
   <article class="article">
     <h1>{{ title }}</h1>
-    <small>
+    <p>
       Published: <time>{{ date | date_to_datetime }}</time>
-      <a class="category" href="/blog/{{ category }}">{{ category }}</a>
-    </small>
+    </p>
     {{ content | safe }}
   </article>
 </div>

@@ -1,0 +1,11 @@
+{
+    "title": "Colin Vandermeer's webpage",
+    "url": "https://colinvandermeer.github.io/",
+    "language": "en",
+    "description": "It's my website :3",
+    "author": {
+      "name": "Colin Vandermeer"
+    },
+    "image": "/assets/social-image.jpg",
+    "feedUrl": "https://colinvandermeer.github.io/feed.xml"
+  }
