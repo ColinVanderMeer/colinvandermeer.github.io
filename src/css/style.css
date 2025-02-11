@@ -35,6 +35,9 @@ h1 {
     font-size: 1.3cm;
   }
 }
+a {
+  font-size: 25px;
+}
 .center {
   display: flex;
   justify-content: center;
