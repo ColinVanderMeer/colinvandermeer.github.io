@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog</title>
+    <link rel="stylesheet" crossorigin href="/assets/index-BeyJeBTq.css">
   </head>
 
   <style>
@@ -22,17 +23,47 @@
   <body>
     <main role="main">
       <div class="content">
-        <p style="text-align: center"><a href="/">Home</a> |<a href="/blog/">Blog</a> | <a href="/projects/">Projects</a> | <a href="/about/">About</a></p>
+        <style>
+    .header {
+        margin: 10px;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+    }
+    .header a {
+        color: #fff;
+    }
+    .header a:hover {
+        color: #ddd
+    }
+    .header a:active {
+        color: #ccc 
+        
+    }
+</style>
+
+<p class="header" style="text-align: center"><strong><a href="/">Home</a> | <a href="/blog/">Blog</a> | <a href="/projects/">Projects</a> | <a href="/about/">About</a></strong></p>
         
 <h1>Blog</h1>
 <p>This view contains a list of all blogposts sorted from newest to oldest.</p>
+
 
 <ul class="article__list">
 
   <li class="article__item">
     <article class="article__preview">
+      <h2><a href="/blog/test2/">Wait this isn&#39;t finished yet!</a></h2>
+      <p>No all my in progress secrets will be revealed!</p>
+      <small>
+        <time>Wed Feb 12 2025</time>
+        <a class="category" href="/blog/"></a>
+      </small>
+    </article>
+  </li>
+
+  <li class="article__item">
+    <article class="article__preview">
       <h2><a href="/blog/testArticle/">This is a test article</a></h2>
-      <p></p>
+      <p>Have you ever written a test article? Probably not one like this</p>
       <small>
         <time>Tue Feb 11 2025</time>
         <a class="category" href="/blog/"></a>
