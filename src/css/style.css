@@ -35,8 +35,9 @@ h1 {
     font-size: 1.3cm;
   }
 }
-a {
-  font-size: 25px;
+p {
+  font-size: 30px;
+  margin-top: -5px;
 }
 .center {
   display: flex;
