@@ -1,16 +1,12 @@
 <link rel="stylesheet" href="/css/articleList.css"/>
 
-<ul class="article__list">
-{% for article in articles | reverse %}
-  <li class="article__item">
-    <article class="article__preview">
+<div class="article-list">
+  {% for article in articles | reverse %}
+    <div class="article-card">
       <h2><a href="{{ article.url | url }}">{{ article.data.title }}</a></h2>
-      <p>{{ article.data.description }}</p>
-      <small>
-        <time>{{ article.data.date | date_to_datetime }}</time>
-        <a class="category" href="/blog/{{ article.data.category }}">{{ article.data.category }}</a>
-      </small>
-    </article>
-  </li>
-{% endfor %}
-</ul>
+      <div class="date">{{ article.data.date | date_to_datetime }}</div>
+      <div class="excerpt">{{ article.data.description }}</div>
+      <a href="{{ article.url | url }}" class="read-more">Read more</a>
+    </div>
+  {% endfor %}
+</div>

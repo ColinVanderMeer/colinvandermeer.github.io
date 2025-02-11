@@ -268,26 +268,30 @@ canvas {
 
 /* Blog Cards */
 .article-list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-md);
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .article-card {
   background-color: var(--color-card-bg);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   transition: var(--transition);
   border: 1px solid transparent;
+  width: 100%;
 }
 
 .article-card:hover {
   border-color: var(--color-primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
 .article-card h2 {
+  font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -300,6 +304,7 @@ canvas {
 .article-card .excerpt {
   color: var(--color-text-muted);
   margin-bottom: var(--spacing-md);
+  line-height: 1.6;
 }
 
 .article-card .read-more {
@@ -308,6 +313,7 @@ canvas {
   background-color: var(--color-primary);
   border-radius: var(--radius-md);
   transition: var(--transition);
+  margin-top: var(--spacing-sm);
 }
 
 .article-card .read-more:hover {
