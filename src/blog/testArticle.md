@@ -1,11 +1,19 @@
 ---
 layout: article
-title: Using Eleventy to build a static site
-description: it's apparently illegal to run a blog and not write some sort of year-in-review list
+title: This is a test article
+description: Have you ever written a test article? Probably not one like this
 date: 2025-02-11
 tags:
-  - tag1
-  - tag2
+  - test
 ---
 
-Test
+## So I was writing a test article
+See this was no normal article, it was a test article...
+
+It had:
+*italics*
+**bold**
+~~strikethrough~~
+[links](https://colinvandermeer.github.io/)
+
+![A test image](/images/nb_noproblem.jpg)

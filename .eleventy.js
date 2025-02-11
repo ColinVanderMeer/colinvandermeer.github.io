@@ -21,13 +21,13 @@ export default function (eleventyConfig) {
         return Date.parse(str);
     };
 
-    eleventyConfig.addCollection("blog", getAllPosts)
+    eleventyConfig.addCollection("blog", getAllPosts);
 
     eleventyConfig.addPassthroughCopy({ "src/static": "/public" });
     eleventyConfig.addPassthroughCopy({ "src/css": "/css/" }); // Extra fix so vite can optimize css
     
-    eleventyConfig.addLayoutAlias("page", "layouts/page")
-    eleventyConfig.addLayoutAlias("article", "layouts/article")
+    eleventyConfig.addLayoutAlias("page", "layouts/page");
+    eleventyConfig.addLayoutAlias("article", "layouts/article");
 
     eleventyConfig.addPlugin(EleventyVitePlugin);
 }
@@ -39,4 +39,8 @@ export const config = {
         includes: "_includes",
         data: "_data",
 	},
+  markdownTemplateEngine: "njk",
+  htmlTemplateEngine: "njk",
+  dataTemplateEngine: "njk",
+  passthroughFileCopy: false,
 };
