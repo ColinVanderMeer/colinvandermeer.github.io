@@ -1,5 +1,9 @@
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
 
+import {
+  getAllPosts,
+} from "./config/collections.js"
+
 export default function (eleventyConfig) {
     eleventyConfig.addFilter("date_to_datetime", async (obj) => { // Thank you maia crimew for this code
         if (!obj) {
@@ -16,6 +20,8 @@ export default function (eleventyConfig) {
         }
         return Date.parse(str);
     };
+
+    eleventyConfig.addCollection("blog", getAllPosts)
 
     eleventyConfig.addPassthroughCopy({ "src/static": "/public" });
     eleventyConfig.addPassthroughCopy({ "src/css": "/css/" }); // Extra fix so vite can optimize css
