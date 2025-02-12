@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d _site --nojekyll",
+    "deploy": "git rev-parse --short HEAD | xargs -I {} gh-pages -d _site --nojekyll -m '{}'",
     "dev": "eleventy --serve",
     "prebuild": "rm -rf _site",
     "build": "eleventy"
