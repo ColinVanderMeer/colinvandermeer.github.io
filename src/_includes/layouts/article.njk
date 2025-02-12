@@ -12,40 +12,23 @@ layout: page
     margin: 0 0 10px;
   }
 
-  small {
-    display: block;
-    margin: 0 0 20px;
+  .article-header {
+    border-bottom: 1px dotted #000;
+    margin-bottom: var(--spacing-sm);
   }
 
-  time {
-    font-size: 0.8em;
-    color: #222;
+  .article-header p {
+    margin-bottom: 0px
   }
 
-  .category {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 2px 10px;
-    background: #333;
-    color: #fff;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .category:hover {
-    background: #666;
-  }
 </style>
 
-  
-<p style="text-align: left;">
-  <a href="/blog/">&lt;-- Go Back</a>
-</p>
 <article class="article">
+  <div class="article-header">
   <h1>{{ title }}</h1>
   <p>
     Published: <time>{{ date | date_to_datetime }}</time>
   </p>
+  </div>
   {{ content | safe }}
 </article>
