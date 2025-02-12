@@ -4,14 +4,18 @@ import {
   getAllPosts,
 } from "./config/collections.js"
 
+import {
+  short_months
+} from "./config/utils.js"
+
 export default function (eleventyConfig) {
     eleventyConfig.addFilter("date_to_datetime", async (obj) => { // Thank you maia crimew for this code
         if (!obj) {
           return "";
         }
         let date = parseDate(obj);
-        date.setHours(24); // This fixes the date being off by one for some reason (smth smth localtime?)
-        return date.toDateString();
+        return short_months(date.getMonth()) + " " + (date.getDate() + 1).toString() + " " + date.getFullYear().toString(); 
+        // This is bad... But doing it the proper way causes all sorts of issues
     });
 
     const parseDate = (str) => {

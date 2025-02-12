@@ -1,0 +1,16 @@
+---
+layout: page
+eleventyComputed:
+  title: posts tagged "{{ tag }}"
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: 
+    - posts
+  addAllPagesToCollections: true
+permalink: /blog/tagged/{{ tag | slugify }}/index.html
+---
+<h1>{{ title }}</h1>
+{% set articles = collections[ tag ] %}
+{% include "./_includes/components/articleList.njk" %}
