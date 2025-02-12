@@ -92,8 +92,8 @@ p {
 }
 
 a {
-  color: var(--color-text);
-  text-decoration: none;
+  color: #a3abff;
+  text-decoration: underline;
   transition: var(--transition);
 }
 
@@ -193,6 +193,11 @@ main {
 .article-card h2 {
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-xs);
+}
+
+.article-card a {
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 .article-card .date {
