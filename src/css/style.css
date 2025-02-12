@@ -101,12 +101,16 @@ a:hover {
   opacity: 0.9;
 }
 
+ul {
+  margin-left: 20px;
+}
+
 /* Layout */
 main {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: var(--spacing-lg);
 }
@@ -114,8 +118,9 @@ main {
 .content {
   background-color: var(--color-primary-dark);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-md);
   border: 1px solid var(--color-primary);
+  background-color: #5e65ad;
 }
 
 /* Responsive Design */
