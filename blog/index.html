@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog</title>
-    <link rel="stylesheet" crossorigin href="/assets/index-BeyJeBTq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/assets/style-BUSwXC-p.css">
   </head>
 
   <style>
@@ -23,55 +26,31 @@
   <body>
     <main role="main">
       <div class="content">
-        <style>
-    .header {
-        margin: 10px;
-        color: #fff;
-        font-family: 'Roboto', sans-serif;
-    }
-    .header a {
-        color: #fff;
-    }
-    .header a:hover {
-        color: #ddd
-    }
-    .header a:active {
-        color: #ccc 
-        
-    }
-</style>
-
-<p class="header" style="text-align: center"><strong><a href="/">Home</a> | <a href="/blog/">Blog</a> | <a href="/projects/">Projects</a> | <a href="/about/">About</a></strong></p>
+        <nav class="site-nav">
+  <a href="/" class="nav-link">Home</a>
+  <a href="/blog/" class="nav-link">Blog</a>
+  <a href="/projects/" class="nav-link">Projects</a>
+  <a href="/about/" class="nav-link">About</a>
+</nav>
         
 <h1>Blog</h1>
-<p>This view contains a list of all blogposts sorted from newest to oldest.</p>
-
-
-<ul class="article__list">
-
-  <li class="article__item">
-    <article class="article__preview">
+<div class="article-list">
+  
+    <div class="article-card">
       <h2><a href="/blog/test2/">Wait this isn&#39;t finished yet!</a></h2>
-      <p>No all my in progress secrets will be revealed!</p>
-      <small>
-        <time>Wed Feb 12 2025</time>
-        <a class="category" href="/blog/"></a>
-      </small>
-    </article>
-  </li>
-
-  <li class="article__item">
-    <article class="article__preview">
+      <div class="date">Wed Feb 12 2025</div>
+      <div class="excerpt">No all my in progress secrets will be revealed!</div>
+      <a href="/blog/test2/" class="read-more">Read more</a>
+    </div>
+  
+    <div class="article-card">
       <h2><a href="/blog/testArticle/">This is a test article</a></h2>
-      <p>Have you ever written a test article? Probably not one like this</p>
-      <small>
-        <time>Tue Feb 11 2025</time>
-        <a class="category" href="/blog/"></a>
-      </small>
-    </article>
-  </li>
-
-</ul>
+      <div class="date">Tue Feb 11 2025</div>
+      <div class="excerpt">Have you ever written a test article? Probably not one like this</div>
+      <a href="/blog/testArticle/" class="read-more">Read more</a>
+    </div>
+  
+  </div>
       </div>
     </main>
   </body>
