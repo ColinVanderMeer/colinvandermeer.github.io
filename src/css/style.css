@@ -123,6 +123,7 @@ main {
   background-color: var(--color-primary-dark);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg) var(--spacing-md);
+  padding-top: 0;
   border: 1px solid var(--color-primary);
   background-color: #5e65ad;
 }
