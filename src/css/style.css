@@ -109,6 +109,10 @@ ul {
   margin-left: 20px;
 }
 
+video {
+  width: 100%;
+}
+
 /* Layout */
 main {
   position: relative;
