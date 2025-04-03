@@ -11,7 +11,7 @@ title: About Me :3
         const currentDate = new Date();
         const timeDiff = currentDate - startDate;
         const years = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25));
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) % 365;
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) % 365 - 5;
         const hours = Math.floor(timeDiff / (1000 * 60 * 60)) % 24;
         const minutes = Math.floor(timeDiff / (1000 * 60)) % 60;
         const seconds = Math.floor(timeDiff / 1000) % 60;
