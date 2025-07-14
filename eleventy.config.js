@@ -1,4 +1,7 @@
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+
+
 
 import {
   getAllPosts,
@@ -34,6 +37,24 @@ export default function (eleventyConfig) {
     eleventyConfig.addLayoutAlias("article", "layouts/article");
 
     eleventyConfig.addPlugin(EleventyVitePlugin);
+
+    eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom",
+		outputPath: "/public/feed.xml", // Make sure it's public so vite doesn't kill it
+		collection: {
+			name: "blog",
+			limit: 50,
+		},
+		metadata: {
+			language: "en",
+			title: "Colin VanderMeer's Blog",
+			base: "https://colinvandermeer.github.io",
+			author: {
+				name: "Colin VanderMeer",
+			}
+		}
+	});
+    
 }
 
 export const config = {
