@@ -18,7 +18,7 @@ permalink: /index.html
 
 	<canvas id="bg"></canvas>
 
-	<main class="center" style="display: none;">
+	<main class="center" style="display: flex;">
 		<div style="text-align: center;">
 			<h1 style="margin-bottom: 0;">I'm Colin VanderMeer</h1>
 			<div style="margin-bottom: 1cm;">
@@ -38,6 +38,9 @@ permalink: /index.html
 			<a href="https://en.wikipedia.org/wiki/Illegal_number"> <img class="eightyeight" src="images/aacs.png" height="62" alt="Feed Bluebell"/> </a>
 		</div>
 	</main>
+	<!-- Hide all content until three.js is ready to render -->
+	<!-- Also done this way so that if js is disabled, it doesn't wait for three.js -->
+	<script>document.querySelector('.center').style.display = "none";</script> 
 
 	<script type="module">
 
