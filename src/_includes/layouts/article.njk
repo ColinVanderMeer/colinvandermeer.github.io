@@ -13,21 +13,28 @@ layout: page
   }
 
   .article-header {
-    border-bottom: 1px dotted #000;
+    border-bottom: 2px dotted var(--color-text);
     margin-bottom: var(--spacing-sm);
   }
 
   .article-header p {
     margin-bottom: 0px
   }
-
 </style>
 
 <article class="article">
   <div class="article-header">
   <h1>{{ title }}</h1>
   <p>
-    Published: <time>{{ date | date_to_datetime }}</time>
+    Published: <time>{{ date | date_to_datetime }}</time> 
+    {% if tags.length > 0 %}
+    <span class="tags">
+      -- Tags: 
+      {% for tag in tags %}
+        <span class="tag"><a href="/blog/tagged/{{ tag }}/">{{ tag }}</a></span>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </span>
+    {% endif %}
   </p>
   </div>
   {{ content | safe }}
