@@ -8,16 +8,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-CyDvdOV9.js"></script>
+  <script type="module" crossorigin src="/assets/index-D2IXCQqH.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-CnXLzDVP.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-DdKQcx2X.css">
 </head>
 
 <body>
 
 	<canvas id="bg"></canvas>
 
-	<main class="center" style="display: none;">
+	<main class="center" style="display: flex;">
 		<div style="text-align: center;">
 			<h1 style="margin-bottom: 0;">I'm Colin VanderMeer</h1>
 			<div style="margin-bottom: 1cm;">
@@ -30,13 +30,17 @@
 			<br>
 			<a href="https://godotengine.org/"> <img class="eightyeight" src="images/godot.png" height="62" alt="Godot Logo"/> </a>
 			<a href="https://rockway.ca/feedbluebell"> <img class="eightyeight" src="images/feedBluebell.png" height="62" alt="Feed Bluebell"/> </a>
-			<a href="/blog/"> <img class="eightyeight" src="images/rss8831.png" height="62" title="I don't actually have an rss feed setup yet... So this just sends you to the blog" alt="Rss logo with text that says &quot;Get my blog rss feed&quot;"/> </a>
+			<a href="/feed.xml"> <img class="eightyeight" src="images/rss8831.png" height="62" title="I don't actually have an rss feed setup yet... So this just sends you to the blog" alt="Rss logo with text that says &quot;Get my blog rss feed&quot;"/> </a>
 			<a href="https://github.com/ColinVanderMeer"> <img class="eightyeight" src="images/github.png" height="62" alt="Github logo with text that says &quot;Check out my github&quot;"/> </a>
 			<br>
 			<a href="https://en.wikipedia.org/wiki/Right_to_repair"> <img class="eightyeight" src="images/right_to_repair_01.jpg" height="62" alt="I support right to repair"/> </a>
-			<a href="https://en.wikipedia.org/wiki/Illegal_number"> <img class="eightyeight" src="images/aacs.png" height="62" alt="Feed Bluebell"/> </a>
+			<a href="https://en.wikipedia.org/wiki/Illegal_number"> <img class="eightyeight" src="images/aacs.png" height="62" alt="AACS free speech"/> </a>
+			<a href="https://www.stopkillinggames.com/"> <img class="eightyeight" src="images/stopKillingGames.png" height="62" alt="Stop Killing Games"/> </a>
 		</div>
 	</main>
+	<!-- Hide all content until three.js is ready to render -->
+	<!-- Also done this way so that if js is disabled, it doesn't wait for three.js -->
+	<script>document.querySelector('.center').style.display = "none";</script> 
 
 </body>
 
