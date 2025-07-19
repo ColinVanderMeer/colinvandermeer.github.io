@@ -4,41 +4,76 @@ title: Projects
 ---
 
 <style>
+  .project-container {
+    margin-bottom: var(--spacing-lg);
+  }
   .image-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
   .image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--spacing-sm);
+  }
+  .two-image-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .two-image-container img {
     width: 400px;
     margin: auto;
     margin-bottom: var(--spacing-sm);
   }
   @media (max-width: 800px) {
-    .image-container img {
+    .two-image-container img {
       width: 100%;
     }
   }
 </style>
 
-<h1>WIP Projects Page</h1>
+<h1>Projects Page</h1>
 
-<h2>Feed Bluebell <a href="https://github.com/ColinVanderMeer/FeedBluebell/"><img src="/icons/github.svg" style="height: var(--font-size-2xl); margin-left: 10px;"/></a></h2>
-<div class="image-container">
-  <img src="https://raw.githubusercontent.com/ColinVanderMeer/FeedBluebell/refs/heads/main/docs/images/titleScreen.png"/>
-  <img src="https://raw.githubusercontent.com/ColinVanderMeer/FeedBluebell/refs/heads/main/docs/images/gameplay.png"/>
+<div class="project-container">
+  <h2>PicoRPG <a href="https://github.com/ColinVanderMeer/PicoRPG/"><img src="/icons/github.svg" style="height: var(--font-size-2xl); margin-left: 10px;"/></a></h2>
+  <div class="image-container">
+    <img src="/projects/PicoRPGimage.jpg"/>
+  </div>
+  <h4 style="text-align: center;"> <a href="/projects/PicoRPGdemo.mp4">Click here to watch a demo</a></h4>
+
+
+  <p>This is a simple RPG game I wrote from scratch to run on a Pi Pico, specifically a Sprig from Hack Club. The Hack Club Sprig is a free console given to teenagers if they program their own game for it. I was really fascinated by this idea and created a game for the sprig, but when I finished it I found that the default game editor was very limiting for the kinds of games I wanted to create. This lead me to attempt to learn how to drive the hardware directly using C instead of the default game engine, and I ended up building PicoRPG.</p>
+
+  <p>Most of the code was written from scratch in C using only a library for graphics and the sound. If you have your own Sprig you can download and try it out right now, there's instructions on how to install it on the github page.</p>
+
+  <p>Technologies Used:</p>
+  <ul style="margin-top: -1.5rem;">
+    <li>C</li>
+    <li><a href="https://github.com/tuupola/hagl">Hardware Agnostic Graphics Library</a></li>
+    <li><a href="https://github.com/moefh/pico-mod-player">Pico MOD Player</a></li>
+  </ul>
 </div>
 
-<!-- [Click here to play](https://rockway.ca/feedbluebell) *(Best played on a touchscreen device)* -->
-<h4 style="text-align: center;"> <a href="https://rockway.ca/feedbluebell/"> Click here to play</a> <i>(Best played on a touchscreen device)</i></h4>
+<div class="project-container">
+  <h2>Feed Bluebell <a href="https://github.com/ColinVanderMeer/FeedBluebell/"><img src="/icons/github.svg" style="height: var(--font-size-2xl); margin-left: 10px;"/></a></h2>
+  <div class="two-image-container">
+    <img src="https://raw.githubusercontent.com/ColinVanderMeer/FeedBluebell/refs/heads/main/docs/images/titleScreen.png"/>
+    <img src="https://raw.githubusercontent.com/ColinVanderMeer/FeedBluebell/refs/heads/main/docs/images/gameplay.png"/>
+  </div>
 
-<p>This was a game I made as part of our school's food waste reduction campaign. The campaign was centered around a real pig named Bluebell who lived on one of our teacher’s farm. People would donate their food waste from our cafeteria to be fed to Bluebell the pig instead of being thrown into the landfill.</p>
+  <!-- [Click here to play](https://rockway.ca/feedbluebell) *(Best played on a touchscreen device)* -->
+  <h4 style="text-align: center;"> <a href="https://rockway.ca/feedbluebell/"> Click here to play</a> <i>(Best played on a touchscreen device)</i></h4>
 
-<p>The game was envisioned as a score attack game where you would compete with your friends on a school wide leaderboard. I worked as the head developer and project lead. We had a team of three developers five artists and one musician by the end of development.</p>
+  <p>This was a game I made as part of our school's food waste reduction campaign. The campaign was centered around a real pig named Bluebell who lived on one of our teacher’s farm. People would donate their food waste from our cafeteria to be fed to Bluebell the pig instead of being thrown into the landfill.</p>
 
-<p>Technologies Used:</p>
-<ul style="margin-top: -1.5rem;">
-  <li>Godot</li>
-  <li>Django</li>
-  <li>Discord Webhook (admin panel notifications)</li>
-</ul>
+  <p>The game was envisioned as a score attack game where you would compete with your friends on a school wide leaderboard. I worked as the head developer and project lead. We had a team of three developers five artists and one musician by the end of development.</p>
+
+  <p>Technologies Used:</p>
+  <ul style="margin-top: -1.5rem;">
+    <li>Godot</li>
+    <li>Django</li>
+    <li>Discord Webhook (admin panel notifications)</li>
+  </ul>
+</div>
