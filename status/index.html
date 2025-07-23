@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Status Updates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/assets/style-B_C66VVs.css">
+  </head>
+
+  <body>
+    <main role="main">
+      <div class="content">
+        <nav class="site-nav">
+  <a href="/" class="nav-link ">Home</a>
+  <a href="/blog/" class="nav-link ">Blog</a>
+  <a href="/status/" class="nav-link is-active">Status</a>
+  <a href="/projects/" class="nav-link ">Projects</a>
+  <a href="/about/" class="nav-link ">About</a>
+</nav>
+        
+<div class="status-page">
+    <h1>Status Updates</h1>
+    <div class="status-container">
+        <div id="loading" class="loading">Loading posts...</div>
+        <div id="error" class="error" style="display: none;">Failed to load posts. Please try again later.</div>
+        <div id="posts-container" class="posts-container"></div>
+    </div>
+</div>
+
+<style>
+.status-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+.status-container {
+  margin-top: var(--spacing-lg);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: var(--spacing-lg);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.error {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: var(--radius-md);
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.status-post {
+  background-color: var(--color-bg-dark);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  transition: var(--transition);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.timestamp {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.post-content {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .status-page {
+    padding: var(--spacing-sm);
+  }
+  
+  .status-post {
+    padding: var(--spacing-sm);
+  }
+
+}
+</style>
+
+<script>
+const STATUS_API_URL = 'http://40.233.124.191:81/status.json';
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffInMinutes = Math.floor((now - date) / (1000 * 60));
+    
+    if (diffInMinutes < 1) return 'just now';
+    if (diffInMinutes < 60) return `${diffInMinutes}m`;
+    if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h`;
+    if (diffInMinutes < 10080) return `${Math.floor(diffInMinutes / 1440)}d`;
+    
+    return date.toLocaleDateString();
+}
+
+function createPostElement(post) {
+    const postDiv = document.createElement('div');
+    postDiv.className = 'status-post';
+    
+    const content = post.body || post.content || post.text;
+    const timestamp = post.timestamp || post.createdAt || new Date().toISOString();
+    
+    postDiv.innerHTML = `
+        <div class="post-header">
+            <span class="timestamp">${formatDate(timestamp)}</span>
+        </div>
+        <div class="post-content">
+            ${content}
+        </div>
+    `;
+    
+    return postDiv;
+}
+
+async function loadPosts() {
+    const loadingEl = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
+    const containerEl = document.getElementById('posts-container');
+    
+    try {
+        loadingEl.style.display = 'block';
+        errorEl.style.display = 'none';
+        
+        const response = await fetch(STATUS_API_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const posts = await response.json();
+        
+        loadingEl.style.display = 'none';
+        
+        containerEl.innerHTML = '';
+        
+        posts.forEach(post => {
+            const postElement = createPostElement(post);
+            containerEl.appendChild(postElement);
+        });
+        
+    } catch (error) {
+        console.error('Error loading posts:', error);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadPosts);
+</script>
+
+      </div>
+    </main>
+  </body>
+</html>
