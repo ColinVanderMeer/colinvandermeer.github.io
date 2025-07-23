@@ -4,39 +4,43 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://colinvandermeer.github.io/public/feed.xml" rel="self" />
   <link href="https://colinvandermeer.github.io/" />
-  <updated>2025-02-12T00:00:00Z</updated>
+  <updated>2025-07-22T00:00:00Z</updated>
   <id>https://colinvandermeer.github.io/</id>
   <author>
     <name>Colin VanderMeer</name>
   </author>
   <entry>
-    <title>Wait this isn&#39;t finished yet!</title>
-    <link href="https://colinvandermeer.github.io/blog/test2/" />
-    <updated>2025-02-12T00:00:00Z</updated>
-    <id>https://colinvandermeer.github.io/blog/test2/</id>
-    <content type="html">&lt;h2&gt;So I was writing a test article&lt;/h2&gt;
-&lt;p&gt;See this was no normal article, it was a test article...&lt;/p&gt;
-&lt;p&gt;It had:
-&lt;em&gt;italics&lt;/em&gt;
-&lt;strong&gt;bold&lt;/strong&gt;
-&lt;s&gt;strikethrough&lt;/s&gt;
-&lt;a href=&quot;https://colinvandermeer.github.io/&quot;&gt;links&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://colinvandermeer.github.io/images/nb_noproblem.jpg&quot; alt=&quot;A test image&quot;&gt;&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>This is a test article</title>
-    <link href="https://colinvandermeer.github.io/blog/testArticle/" />
-    <updated>2025-02-11T00:00:00Z</updated>
-    <id>https://colinvandermeer.github.io/blog/testArticle/</id>
-    <content type="html">&lt;h2&gt;So I was writing a test article&lt;/h2&gt;
-&lt;p&gt;See this was no normal article, it was a test article...&lt;/p&gt;
-&lt;p&gt;It had:
-&lt;em&gt;italics&lt;/em&gt;
-&lt;strong&gt;bold&lt;/strong&gt;
-&lt;s&gt;strikethrough&lt;/s&gt;
-&lt;a href=&quot;https://colinvandermeer.github.io/&quot;&gt;links&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://colinvandermeer.github.io/images/nb_noproblem.jpg&quot; alt=&quot;A test image&quot;&gt;&lt;/p&gt;
+    <title>100 Days of Linux</title>
+    <link href="https://colinvandermeer.github.io/blog/100daysOfLinux/" />
+    <updated>2025-07-22T00:00:00Z</updated>
+    <id>https://colinvandermeer.github.io/blog/100daysOfLinux/</id>
+    <content type="html">&lt;p&gt;During my first year of High School I was gifted a Surface Laptop Go to help with my schoolwork. It was a pretty decent laptop with &lt;span title=&quot;The cooling on this laptop was atrocious. It was constantly full fan and thermal throttling if you tried to do anything. And the battery life barely lasted a day&quot; style=&quot;text-decoration: underline; text-decoration-style: dashed; cursor: help;&quot;&gt;some flaws&lt;/span&gt; but for that time in my life it was perfect. Unfortunately 3 years later it had slowed down to a crawl, it&#39;s initial startup would take upwards of two minutes and general navigation was becoming tedious.&lt;/p&gt;
+&lt;p&gt;This is when I had the idea to install Linux to breath some new life into this aging laptop. I had some general experience with Linux before, running Debian 10 through Crostini on ChromeOS to run a few select Linux apps (mostly games) and using Linux in a server setting to power the leaderboard for &lt;a href=&quot;https://colinvandermeer.github.io/projects/#FeedBluebell&quot;&gt;Feed Bluebell&lt;/a&gt;, but I&#39;d never &amp;quot;daily driven&amp;quot; Linux as my main OS.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://colinvandermeer.github.io/images/100Linux/Crostini.png&quot; alt=&quot;A screenshot of the Crostini terminal on ChromeOS&quot;&gt;
+&lt;span class=&quot;image-caption&quot;&gt;Crostini terminal on ChromeOS&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I chose EndeavourOS + KDE Plasma as my Distro of choice since it&#39;s basically Arch Linux with a graphical installer and sets up a few extra sane default configurations. I chose an Arch base because of its rolling release model seeming nice after dealing with outdated dependency hell on ChromeOS&#39;s outdated Debian and the AUR sounding like a good package distribution model.&lt;/p&gt;
+&lt;p&gt;I installed EndeavourOS on December 6th 2024 and daily drove that same install for 124 days to April 8th 2025 when I bought a M4 Macbook Air switched over to MacOS. In this blog post I&#39;ll talk about the good and the bad with my experience switching from Windows to daily driving Linux.&lt;/p&gt;
+&lt;h2&gt;The Good&lt;/h2&gt;
+&lt;h3&gt;Pacman / AUR&lt;/h3&gt;
+&lt;p&gt;One of my favourite parts of Linux is it&#39;s package management philosophy. Having a centralized repository for 90% of the software for your system just makes sense and is way better than the searching for exe files on random websites for Windows. And since you have all of your software downloaded and tracked from one place you can update your entire system just by running &lt;code&gt;pacman -Syu&lt;/code&gt; (or &lt;code&gt;yay&lt;/code&gt; as I did) and everything just updates and live reloads in the background. It&#39;s just such an elegant solution that all operating systems should strive for.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://colinvandermeer.github.io/images/100Linux/ILuvPacman.png&quot; alt=&quot;A screenshot of Pacman showing all the packages it&#39;s updating&quot;&gt;
+&lt;span class=&quot;image-caption&quot;&gt;Upgrade your entire system, in the background, while you work, and it&#39;ll only take up an extra 3mb of disk space. Thanks Pacman &amp;lt;3&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Performance&lt;/h3&gt;
+&lt;p&gt;One of the main reasons I finally switched to Linux was to solve some of the terrible performance issues my laptop had on Windows, and I feel confident in saying those were mostly resolved. Overall the system performed much better with the lighter operating system on it, with a specific standout being the boot time which went from &amp;gt;2min to around 15 seconds. A few things did take a performance hit (notably Intel QSV hardware video decoding only worked with Chromium under X11?) But overall performance was much improved by the Linux switch.&lt;/p&gt;
+&lt;h3&gt;Morals&lt;/h3&gt;
+&lt;p&gt;Linux is Free Open Source Software built by people to serve people, not to serve shareholders. In a world where every software update only seems to make every program worse in order to extract more money from you, it&#39;s nice to run an operating system completely removed from that system. Knowing my system was my system designed by people with my best interests at heart &lt;!-- Other than Jia Tan obviously --&gt; is just a nice to have feeling you can&#39;t get anywhere else &lt;br&gt;
+&lt;span class=&quot;small-text&quot;&gt; Well you can get the exact negative of that feeling when trying to save your documents from the all consuming wrath of OneDrive when setting up Windows &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;The Bad&lt;/h2&gt;
+&lt;h3&gt;Battery Life&lt;/h3&gt;
+&lt;p&gt;After installing Linux my battery life went from &amp;quot;&lt;em&gt;Might last the whole day if you&#39;re lucky&lt;/em&gt;&amp;quot; to &amp;quot;&lt;em&gt;This will die in the middle of the day 100% of the time&lt;/em&gt;&amp;quot;. This was annoying, but wasn&#39;t really a deal breaker because I had already become accustom to charging my laptop halfway through the day.&lt;/p&gt;
+&lt;h3&gt;Touchpad&lt;/h3&gt;
+&lt;p&gt;This was one of three huge unsolvable issues that tainted my Linux experience the whole time I was using it. The touchpad just felt bad to use, and the especially big problem was the scrolling. First, the scrolling was way too fast, no matter what setting I set it to in setting. Second, and the main problem, on every other touchpad device if you scroll down with speed and release the scroll will keep traveling with inertia, and if you tap it will stop. Try this on any Windows Laptop, MacBook, iPhone, or Android device you have and it&#39;ll do this same thing. Not Linux. For some reason Linux doesn&#39;t stop the inertia scroll if you put your fingers back on the touchpad. This made navigating any website a pain.&lt;/p&gt;
+&lt;h3&gt;The 400mhz curse&lt;/h3&gt;
+&lt;p&gt;For some unknown reason if I booted my computer from shutdown when it had less than 10% battery the CPU would be locked to running between 400-700mhz until I rebooted the computer when it was &amp;gt;10% battery. For context this chip has a base clock of 1Ghz and a boost clock of 3.6Ghz, and when running not in this locked mode it would average jumping between 1.5-2.5Ghz. This meant if the computer ever died (which it did often) it would become completely unbearable to use until I waited ~5 minutes for it to charge above 10% battery.&lt;/p&gt;
+&lt;h3&gt;WiFi Issues&lt;/h3&gt;
+&lt;p&gt;After 3 months into daily driving Linux a weird issue started happening. Randomly about once a day for 5 minutes the WiFi on my laptop would just stop working, it didn&#39;t disconnect or show any signs on why it would stop working, it just did. This was unacceptable for the laptop that I was doing all my school work on and was the main thing that pushed me into upgrading to a new MacBook.&lt;/p&gt;
+&lt;h2&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;Overall I really enjoyed my time using Linux and while I&#39;ve upgraded to running MacOS, there are still many things I miss from running linux. I still keep that Linux laptop around too, it&#39;s useful whenever I need to read a USB drive or connect to a printer (Linux is &lt;em&gt;really&lt;/em&gt; good at reading USB drives and connecting to printers)&lt;/p&gt;
 </content>
   </entry>
 </feed>
