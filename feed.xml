@@ -4,11 +4,40 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://colinvandermeer.github.io/public/feed.xml" rel="self" />
   <link href="https://colinvandermeer.github.io/" />
-  <updated>2025-07-22T00:00:00Z</updated>
+  <updated>2025-07-23T00:00:00Z</updated>
   <id>https://colinvandermeer.github.io/</id>
   <author>
     <name>Colin VanderMeer</name>
   </author>
+  <entry>
+    <title>100 Days of macOS</title>
+    <link href="https://colinvandermeer.github.io/blog/100daysOfMacos/" />
+    <updated>2025-07-23T00:00:00Z</updated>
+    <id>https://colinvandermeer.github.io/blog/100daysOfMacos/</id>
+    <content type="html">&lt;p&gt;The first computer I ever used was a 2007 iMac. I used this computer almost exclusively for 11 years straight, only occasionally having an affair with a windows laptop we also had to run games on there that I couldn&#39;t on the Mac. In 2018 my family bought it&#39;s first desktop gaming computer and I said goodbye to my loyal macOS to jump headfirst into Windows 10.&lt;/p&gt;
+&lt;p&gt;After that day I didn&#39;t touch macOS for the next 6 years of my life. I had a Windows desktop, then a Chromebook, then a Windows laptop which then became a &lt;a href=&quot;https://colinvandermeer.github.io/blog/100daysOfLinux/&quot;&gt;Linux laptop&lt;/a&gt;. Though when that Linux laptop was becoming a bit of a pain to work with (see previous article) I heard that the new M4 MacBook Air was $100 USD cheaper and started at 16gb of ram I decided to fully embrace the apple ecosystem and finally go back to macOS.&lt;/p&gt;
+&lt;h2&gt;The Good&lt;/h2&gt;
+&lt;h3&gt;Phenomenal Hardware and Battery Life&lt;/h3&gt;
+&lt;p&gt;I&#39;m sure by now you&#39;ve heard how good everyone thinks Apple Silicon is, and it is that good. The way Apple has finely tuned every single piece of macOS to work flawlessly with the rest of it&#39;s hardware is as good as everyone says it is. I&#39;ve never used a more performant laptop or a laptop with battery life this good, and the MacBook manages to do both at the same time.&lt;/p&gt;
+&lt;h3&gt;App Support&lt;/h3&gt;
+&lt;p&gt;Compared to Linux, macOS has a great library of software. Most modern software is designed to run on macOS since it&#39;s the second most popular operating system in the world, and if Apple wants software on their platform they have more than enough money to throw at developers to make it happen. During the switch to Apple Silicon, Adobe released a beta version of Photoshop for Apple Silicon day and date with it&#39;s release.&lt;/p&gt;
+&lt;h3&gt;Spotlight Search / Raycast&lt;/h3&gt;
+&lt;p&gt;I adore Spotlight Search. I always opened apps on Windows by pressing the Windows key and typing the app name. The problem is it would only work half the time, and the other half the time it would open Bing. On macOS this works 100% of the time because of spotlight search. I also use a replacement for the default spotlight search called Raycast which is basically spotlight search on steroids and VC funded. Raycast even states in it&#39;s manifest that it&#39;s &amp;quot;inspired by early command line interfaces, where you could take any action without the distractions&amp;quot;.&lt;/p&gt;
+&lt;p&gt;One thing I didn&#39;t think I&#39;d like in Raycast is it&#39;s heavy push of AI, but with some recent updates I&#39;ve actually started appreciating it. I really like the &amp;quot;Quick AI&amp;quot; that you can access by opening Raycast, pushing tab, and typing whatever you want. It&#39;s become a really fast tool for quickly getting general information when I&#39;m trying to code or write something. This feature became actually usable for me when they added &amp;quot;Bring Your Own Key&amp;quot; support which allows you to manually hook Raycast AI up to your own OpenAI / Anthropic / Google API key. And since Google&#39;s Gemini API allows you to get Gemini 2.5 Flash for 250 requests free, I never run into any rate limits and I don&#39;t have to pay for it.&lt;/p&gt;
+&lt;h2&gt;The Bad&lt;/h2&gt;
+&lt;h3&gt;Software Updates&lt;/h3&gt;
+&lt;p&gt;Coming from Arch Linux makes macOS update system feel terrible in comparison. Every time I have to wait 10 minutes for my MacBook to install it&#39;s new update I miss my package manager that was able to update my entire desktop environment in the background and hot reload it to the new version without me noticing.&lt;/p&gt;
+&lt;h3&gt;The Cmd (⌘) key&lt;/h3&gt;
+&lt;p&gt;macOS takes what Windows performs perfectly fine on one key and splits it across three different keys. One of the most important ways I navigate text on Windows is by holding the Ctrl key and using the arrows to jump between words, using the shift arrows to select text words at a time, or using the backspace key to delete words at a time. macOS moves this feature to the option (alt) key but keeps all the copying and pasting on the command key. So instead of holding one key when wanting to navigate around and edit text, you have to remember to hold one key and then switch to the other when you want to copy and paste.&lt;/p&gt;
+&lt;p&gt;This also means that all of the standard hotkeys for thing on Windows and Linux have been completely reworked to deal with this new modifier key. For instance, opening developer tools on a web browser for Windows and Linux is &lt;code&gt;Ctrl + Shift + I&lt;/code&gt; whereas on macOS it&#39;s &lt;code&gt;Cmd + Option + I&lt;/code&gt;. Firefox&#39;s hotkey to open pip video is &lt;code&gt;Ctrl + Shift + ]&lt;/code&gt; but on macOS it&#39;s &lt;code&gt;Cmd + Option + Shift + ]&lt;/code&gt; so it doesn&#39;t even get changed consistently!&lt;/p&gt;
+&lt;h3&gt;Gatekeeper&lt;/h3&gt;
+&lt;p&gt;Never before have I had to fight with an operating system so much just to make it run the file I want. macOS is downright determined to prevent you from running any app that isn&#39;t properly notarized by Apple. This isn&#39;t just &amp;quot;Open System Settings. Click Privacy &amp;amp; Security, scroll down, and click the Open Anyway button.&amp;quot; I&#39;ve run into software that this won&#39;t even work on. I have to manually clear all attributes and force my own code signature on it, and if you even open the app once it&#39;ll never work even after you do all those things. A &amp;quot;user friendly operating system&amp;quot; shouldn&#39;t require users to use the terminal just to open an app.&lt;/p&gt;
+&lt;image width=&quot;50%&quot; style=&quot;margin-top: -20px&quot; src=&quot;/images/100Mac/gatekeeper.webp&quot;&gt;
+&lt;p&gt;&lt;span style=&quot;display: block; text-align: center; margin-top: -20px;&quot;&gt;&lt;code&gt;xattr -cr &amp;lt;APP&amp;gt; &amp;amp;&amp;amp; codesign --force --deep --sign - &amp;lt;APP&amp;gt;&lt;/code&gt; is your friend&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Closing Thoughts&lt;/h2&gt;
+&lt;p&gt;macOS good &lt;image style=&quot;height: calc(var(--font-size-base) * 2); vertical-align: middle; display: inline;&quot; src=&quot;/images/blobhajParty.gif&quot;&gt;&lt;/image&gt;&lt;/p&gt;
+&lt;/image&gt;</content>
+  </entry>
   <entry>
     <title>100 Days of Linux</title>
     <link href="https://colinvandermeer.github.io/blog/100daysOfLinux/" />

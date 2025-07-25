@@ -40,7 +40,14 @@
 	</main>
 	<!-- Hide all content until three.js is ready to render -->
 	<!-- Also done this way so that if js is disabled, it doesn't wait for three.js -->
-	<script>document.querySelector('.center').style.display = "none";</script> 
+	<script>
+		document.querySelector('.center').style.display = "none";
+		// Timeout for 5 seconds to ensure that if three.js breaks, the user still sees something
+		// This isn't elegant, but it's for browsers that can't handle fancy js, so I can't use fancy js
+		setTimeout(() => {
+			document.querySelector('.center').style.display = "flex";
+		}, 5000);
+	</script> 
 
 </body>
 

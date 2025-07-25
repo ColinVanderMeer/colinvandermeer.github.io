@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>100 Days of macOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/assets/style-B_C66VVs.css">
+  </head>
+
+  <body>
+    <main role="main">
+      <div class="content">
+        <nav class="site-nav">
+  <a href="/" class="nav-link ">Home</a>
+  <a href="/blog/" class="nav-link is-active">Blog</a>
+  <!-- <a href="/status/" class="nav-link ">Status</a> -->
+  <a href="/projects/" class="nav-link ">Projects</a>
+  <a href="/about/" class="nav-link ">About</a>
+</nav>
+        
+<style>
+  .article {
+    margin: 40px 0;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .article-header {
+    border-bottom: 2px dotted var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-header p {
+    margin-bottom: 0px
+  }
+
+  .image-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+</style>
+
+<article class="article">
+  <div class="article-header">
+  <h1>100 Days of macOS</h1>
+  <p>
+    Published: <time>Jul 23 2025</time> 
+    
+    <span class="tags">
+      -- Tags: 
+      
+        <span class="tag"><a href="/blog/tagged/macOS/">macOS</a></span>, 
+      
+        <span class="tag"><a href="/blog/tagged/OS Rants/">OS Rants</a></span>
+      
+    </span>
+    
+  </p>
+  </div>
+  <p>The first computer I ever used was a 2007 iMac. I used this computer almost exclusively for 11 years straight, only occasionally having an affair with a windows laptop we also had to run games on there that I couldn't on the Mac. In 2018 my family bought it's first desktop gaming computer and I said goodbye to my loyal macOS to jump headfirst into Windows 10.</p>
+<p>After that day I didn't touch macOS for the next 6 years of my life. I had a Windows desktop, then a Chromebook, then a Windows laptop which then became a <a href="/blog/100daysOfLinux/">Linux laptop</a>. Though when that Linux laptop was becoming a bit of a pain to work with (see previous article) I heard that the new M4 MacBook Air was $100 USD cheaper and started at 16gb of ram I decided to fully embrace the apple ecosystem and finally go back to macOS.</p>
+<h2>The Good</h2>
+<h3>Phenomenal Hardware and Battery Life</h3>
+<p>I'm sure by now you've heard how good everyone thinks Apple Silicon is, and it is that good. The way Apple has finely tuned every single piece of macOS to work flawlessly with the rest of it's hardware is as good as everyone says it is. I've never used a more performant laptop or a laptop with battery life this good, and the MacBook manages to do both at the same time.</p>
+<h3>App Support</h3>
+<p>Compared to Linux, macOS has a great library of software. Most modern software is designed to run on macOS since it's the second most popular operating system in the world, and if Apple wants software on their platform they have more than enough money to throw at developers to make it happen. During the switch to Apple Silicon, Adobe released a beta version of Photoshop for Apple Silicon day and date with it's release.</p>
+<h3>Spotlight Search / Raycast</h3>
+<p>I adore Spotlight Search. I always opened apps on Windows by pressing the Windows key and typing the app name. The problem is it would only work half the time, and the other half the time it would open Bing. On macOS this works 100% of the time because of spotlight search. I also use a replacement for the default spotlight search called Raycast which is basically spotlight search on steroids and VC funded. Raycast even states in it's manifest that it's &quot;inspired by early command line interfaces, where you could take any action without the distractions&quot;.</p>
+<p>One thing I didn't think I'd like in Raycast is it's heavy push of AI, but with some recent updates I've actually started appreciating it. I really like the &quot;Quick AI&quot; that you can access by opening Raycast, pushing tab, and typing whatever you want. It's become a really fast tool for quickly getting general information when I'm trying to code or write something. This feature became actually usable for me when they added &quot;Bring Your Own Key&quot; support which allows you to manually hook Raycast AI up to your own OpenAI / Anthropic / Google API key. And since Google's Gemini API allows you to get Gemini 2.5 Flash for 250 requests free, I never run into any rate limits and I don't have to pay for it.</p>
+<h2>The Bad</h2>
+<h3>Software Updates</h3>
+<p>Coming from Arch Linux makes macOS update system feel terrible in comparison. Every time I have to wait 10 minutes for my MacBook to install it's new update I miss my package manager that was able to update my entire desktop environment in the background and hot reload it to the new version without me noticing.</p>
+<h3>The Cmd (⌘) key</h3>
+<p>macOS takes what Windows performs perfectly fine on one key and splits it across three different keys. One of the most important ways I navigate text on Windows is by holding the Ctrl key and using the arrows to jump between words, using the shift arrows to select text words at a time, or using the backspace key to delete words at a time. macOS moves this feature to the option (alt) key but keeps all the copying and pasting on the command key. So instead of holding one key when wanting to navigate around and edit text, you have to remember to hold one key and then switch to the other when you want to copy and paste.</p>
+<p>This also means that all of the standard hotkeys for thing on Windows and Linux have been completely reworked to deal with this new modifier key. For instance, opening developer tools on a web browser for Windows and Linux is <code>Ctrl + Shift + I</code> whereas on macOS it's <code>Cmd + Option + I</code>. Firefox's hotkey to open pip video is <code>Ctrl + Shift + ]</code> but on macOS it's <code>Cmd + Option + Shift + ]</code> so it doesn't even get changed consistently!</p>
+<h3>Gatekeeper</h3>
+<p>Never before have I had to fight with an operating system so much just to make it run the file I want. macOS is downright determined to prevent you from running any app that isn't properly notarized by Apple. This isn't just &quot;Open System Settings. Click Privacy &amp; Security, scroll down, and click the Open Anyway button.&quot; I've run into software that this won't even work on. I have to manually clear all attributes and force my own code signature on it, and if you even open the app once it'll never work even after you do all those things. A &quot;user friendly operating system&quot; shouldn't require users to use the terminal just to open an app.</p>
+<image width="50%" style="margin-top: -20px" src="/images/100Mac/gatekeeper.webp">
+<p><span style="display: block; text-align: center; margin-top: -20px;"><code>xattr -cr &lt;APP&gt; &amp;&amp; codesign --force --deep --sign - &lt;APP&gt;</code> is your friend</span></p>
+<h2>Closing Thoughts</h2>
+<p>macOS good <image style="height: calc(var(--font-size-base) * 2); vertical-align: middle; display: inline;" src="/images/blobhajParty.gif"></p>
+
+</article>
+      </div>
+    </main>
+  </body>
+</html>
