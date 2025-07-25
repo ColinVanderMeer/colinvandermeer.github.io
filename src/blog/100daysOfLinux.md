@@ -5,6 +5,7 @@ description: My experience daily driving EndeavourOS
 date: 2025-07-22
 tags:
   - Linux
+  - OS Rants
 ---
 
 During my first year of High School I was gifted a Surface Laptop Go to help with my schoolwork. It was a pretty decent laptop with <span title="The cooling on this laptop was atrocious. It was constantly full fan and thermal throttling if you tried to do anything. And the battery life barely lasted a day" style="text-decoration: underline; text-decoration-style: dashed; cursor: help;" >some flaws</span> but for that time in my life it was perfect. Unfortunately 3 years later it had slowed down to a crawl, it's initial startup would take upwards of two minutes and general navigation was becoming tedious.
