@@ -67,7 +67,7 @@ tags:
   #bubbleText {
     position: absolute;
     width: 70%;
-    font-size: 1.3rem;
+    font-size: var(--font-size-lg);
     line-height: 1.4;
     margin: 0;
     padding: 0 1rem;
@@ -95,6 +95,44 @@ tags:
   .mute-button.muted {
     opacity: 0.5;
   }
+
+  .transcript-container {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+  }
+
+  .transcript-button {
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+  }
+
+  .transcript-section {
+    display: none;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    background: var(--color-secondary);
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--radius-md);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .transcript-section.visible {
+    display: block;
+  }
+
+  .transcript-line {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+  }
 </style>
 
 I think something Treble says during Episode 4 really applies to the game as a whole.
@@ -115,6 +153,23 @@ I think something Treble says during Episode 4 really applies to the game as a w
     <button class="mute-button" id="muteButton" aria-label="Toggle mute">🔊</button>
   </div>
 </div>
+
+<div class="transcript-container">
+  <button class="transcript-button" id="transcriptToggle">Show Transcript</button>
+</div>
+
+<div class="transcript-section" id="transcriptSection">
+  <div class="transcript-line">to me, and i really mean this honestly. it feels like the soul is missing from the thing.</div>
+  <div class="transcript-line">i'm not some weird lo-fi purist, but it really is too clean.</div>
+  <div class="transcript-line">there's like... this energy's gone from it.</div>
+  <div class="transcript-line">y'know, some messiness is <em>good</em>.</div>
+  <div class="transcript-line">it's like... restoring a painting. you have to be careful because... you can scrape paint off alongside the dirt.</div>
+  <div class="transcript-line">and i think we do a little bit of our painting <em>with</em> dirt.</div>
+</div>
+
+</br>
+So wisely said treble, and this is the reason you can see some white fringing around his sprites. It's because I wanted to be authentic to his message and do a little bit of painting with dirt. </br>
+<span class="small-text"> And it's definitely not because I didn't want to try and cut him out of his gif for the third time... </span>
 
 <script>
   const trebleSounds = [
@@ -215,5 +270,13 @@ I think something Treble says during Episode 4 really applies to the game as a w
     isMuted = !isMuted;
     muteButton.textContent = isMuted ? '🔇' : '🔊';
     muteButton.classList.toggle('muted');
+  });
+
+  const transcriptToggle = document.getElementById('transcriptToggle');
+  const transcriptSection = document.getElementById('transcriptSection');
+
+  transcriptToggle.addEventListener('click', () => {
+    transcriptSection.classList.toggle('visible');
+    transcriptToggle.textContent = transcriptSection.classList.contains('visible') ? 'Hide Transcript' : 'Show Transcript';
   });
 </script>
