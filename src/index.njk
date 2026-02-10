@@ -53,193 +53,130 @@ permalink: /index.html
 
 	<script type="module">
 
-		import * as THREE from 'three';
+import { Renderer, Camera, Transform, GLTFLoader, Program } from 'ogl';
 
-		import { EffectComposer } from 'three/addons/postprocessing/EffectComposer';
-		import { RenderPixelatedPass } from 'three/addons/postprocessing/RenderPixelatedPass';
-		import { OutputPass } from 'three/addons/postprocessing/OutputPass';
+// 1. Setup Renderer & "Stupid Hack" for Pixelation
+const pixelFactor = 5;
+const renderer = new Renderer({ 
+    canvas: document.querySelector('#bg'),
+    alpha: false,
+    dpr: 1
+});
+const gl = renderer.gl;
+gl.clearColor(0.11, 0.13, 0.14, 1);
 
-		import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
+function resize() {
+    renderer.setSize(window.innerWidth / pixelFactor, window.innerHeight / pixelFactor);
+    gl.canvas.style.width = '100%';
+    gl.canvas.style.height = '100%';
+    gl.canvas.style.imageRendering = 'pixelated';
+    
+    if(camera) {
+        const aspect = window.innerWidth / window.innerHeight;
+        camera.orthographic({
+            left: -aspect, right: aspect, top: 1, bottom: -1, zoom: 1 
+        });
+    }
+}
+window.addEventListener('resize', resize, false);
 
-		let camera, scene, renderer, composer, crystalMesh, clock, aigisModel;
+// 2. Setup Scene
+const scene = new Transform();
 
+// 3. Setup Camera
+const camera = new Camera(gl, { near: 0.1, far: 100 });
+camera.position.set(0, 2 * Math.tan(Math.PI / 6), 2);
+camera.rotation.x = -Math.PI / 6;
+resize();
 
-		const loader = new GLTFLoader();
-		loader.load( '3d/Aigis.glb', function ( gltf ) {
+// 4. The Tiny Shader (Replaces MeshBasicMaterial)
+const vertex = /* glsl */ `
+    attribute vec3 position;
+    attribute vec2 uv;
+    uniform mat4 modelViewMatrix;
+    uniform mat4 projectionMatrix;
+    varying vec2 vUv;
+    void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+`;
 
-			aigisModel = gltf.scene;
-			aigisModel.position.set( 0, -0.9, 0 );
-			aigisModel.scale.set( 0.01, 0.01, 0.01 );
-			scene.add( aigisModel );
+const fragment = /* glsl */ `
+    precision highp float;
+    uniform sampler2D tMap;
+    varying vec2 vUv;
+    void main() {
+        vec4 color = texture2D(tMap, vUv);
+        if (color.a < 0.1) discard; 
+        gl_FragColor = color;
+    }
+`;
 
-			document.querySelector('#bg').style.backgroundColor = "gold";
-			document.querySelector('.center').style.display = "flex";
+// 5. Load the GLB (Fixed Syntax)
+let aigisModel;
 
-			animate();
+async function load() {
+    // FIX: Use static method GLTFLoader.load, do NOT use 'new'
+    const gltf = await GLTFLoader.load(gl, '3d/Aigis.glb');
+    
+    // OGL returns a scene graph (array of roots)
+    const modelRoot = gltf.scene || gltf.scenes[0];
+    
+    // Wrapper to hold the model so we can rotate/move it easily
+    aigisModel = new Transform();
+    
+    // Add all GLTF children to our wrapper
+    modelRoot.forEach(child => child.setParent(aigisModel));
 
-		}, undefined, function ( e ) {
+    // Recursively swap the heavy PBR shader for our tiny one
+    function applySimpleShader(node) {
+        if (node.program) {
+            // Keep the texture found in the GLB
+            const map = node.program.uniforms.tBaseColor 
+                ? node.program.uniforms.tBaseColor.value 
+                : (gltf.textures && gltf.textures.length ? gltf.textures[0] : null);
 
-			console.error( e );
+            node.program = new Program(gl, {
+                vertex,
+                fragment,
+                uniforms: { tMap: { value: map } },
+                cullFace: null // Disable culling (like side: DoubleSide)
+            });
+        }
+        if (node.children) node.children.forEach(applySimpleShader);
+    }
+    
+    // Apply shader to everything in the model
+    aigisModel.children.forEach(applySimpleShader);
 
-		} );
+    // Set Initial Transforms
+    aigisModel.position.set(0, -0.9, 0);
+    aigisModel.scale.set(0.01, 0.01, 0.01);
+    aigisModel.setParent(scene);
 
-		init();
+    // Show UI
+    document.querySelector('#bg').style.backgroundColor = "gold";
+    document.querySelector('.center').style.display = "flex";
+    
+    requestAnimationFrame(animate);
+}
 
-		function init() {
+// 6. Animation Loop
+function animate(t) {
+    requestAnimationFrame(animate);
+    const time = t * 0.001; 
 
-			const aspectRatio = window.innerWidth / window.innerHeight;
+    if (aigisModel) {
+        // Simple animation
+        aigisModel.position.y = -0.9 + Math.sin(time * 2) * 0.05;
+        aigisModel.rotation.y = time;
+    }
 
-			camera = new THREE.OrthographicCamera( - aspectRatio, aspectRatio, 1, - 1, 0.1, 10 );
-			camera.position.y = 2 * Math.tan( Math.PI / 6 );
-			camera.position.z = 2;
+    renderer.render({ scene, camera });
+}
 
-      camera.rotation.x = - Math.PI / 6;
-
-			scene = new THREE.Scene();
-			scene.background = new THREE.Color( 0x1d2225 );
-
-			clock = new THREE.Clock();
-
-			renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#bg')
-      });
-			renderer.shadowMap.enabled = true;
-			//renderer.setPixelRatio( window.devicePixelRatio );
-			renderer.setSize( window.innerWidth, window.innerHeight );
-
-			composer = new EffectComposer( renderer );
-			const renderPixelatedPass = new RenderPixelatedPass( 5, scene, camera );
-			composer.addPass( renderPixelatedPass );
-
-			const outputPass = new OutputPass();
-			composer.addPass( outputPass );
-
-			window.addEventListener( 'resize', onWindowResize );
-
-			// meshes
-
-			// lights
-
-			scene.add( new THREE.AmbientLight( 0x757f8e, 3 ) );
-
-			const directionalLight = new THREE.DirectionalLight( 0xfffecd, 1.5 );
-			directionalLight.position.set( 100, 100, 100 );
-			directionalLight.castShadow = true;
-			directionalLight.shadow.mapSize.set( 2048, 2048 );
-			scene.add( directionalLight );
-
-			const spotLight = new THREE.SpotLight( 0xffc100, 10, 10, Math.PI / 16, .02, 2 );
-			spotLight.position.set( 2, 2, 0 );
-			const target = spotLight.target;
-			scene.add( target );
-			target.position.set( 0, 0, 0 );
-			spotLight.castShadow = true;
-			scene.add( spotLight );
-
-		}
-
-		function onWindowResize() {
-
-			const aspectRatio = window.innerWidth / window.innerHeight;
-			camera.left = - aspectRatio;
-			camera.right = aspectRatio;
-			camera.updateProjectionMatrix();
-
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			composer.setSize( window.innerWidth, window.innerHeight );
-
-		}
-
-		function animate() {
-
-			requestAnimationFrame( animate );
-
-			const t = clock.getElapsedTime();
-
-			// aigisModel.material.emissiveIntensity = Math.sin( t * 3 ) * .5 + .5;
-			aigisModel.position.y = -0.9 + Math.sin( t * 2 ) * .05;
-			aigisModel.rotation.y = stopGoEased( t, 2, 4 ) * 2 * Math.PI;
-
-			const rendererSize = renderer.getSize( new THREE.Vector2() );
-			const aspectRatio = rendererSize.x / rendererSize.y;
-
-      pixelAlignFrustum( camera, aspectRatio, Math.floor( rendererSize.x / 5 ),
-        Math.floor( rendererSize.y / 5 ) );
-
-			composer.render();
-
-		}
-
-		// Helper functions
-
-		function pixelTexture( texture ) {
-
-			texture.minFilter = THREE.NearestFilter;
-			texture.magFilter = THREE.NearestFilter;
-			texture.generateMipmaps = false;
-			texture.wrapS = THREE.RepeatWrapping;
-			texture.wrapT = THREE.RepeatWrapping;
-			texture.colorSpace = THREE.SRGBColorSpace;
-			return texture;
-
-		}
-
-		function easeInOutCubic( x ) {
-
-			return x ** 2 * 3 - x ** 3 * 2;
-
-		}
-
-		function linearStep( x, edge0, edge1 ) {
-
-			const w = edge1 - edge0;
-			const m = 1 / w;
-			const y0 = - m * edge0;
-			return THREE.MathUtils.clamp( y0 + m * x, 0, 1 );
-
-		}
-
-		function stopGoEased( x, downtime, period ) {
-
-			const cycle = ( x / period ) | 0;
-			const tween = x - cycle * period;
-			const linStep = easeInOutCubic( linearStep( tween, downtime, period ) );
-			return cycle + linStep;
-
-		}
-
-		function pixelAlignFrustum( camera, aspectRatio, pixelsPerScreenWidth, pixelsPerScreenHeight ) {
-
-			// 0. Get Pixel Grid Units
-			const worldScreenWidth = ( ( camera.right - camera.left ) / camera.zoom );
-			const worldScreenHeight = ( ( camera.top - camera.bottom ) / camera.zoom );
-			const pixelWidth = worldScreenWidth / pixelsPerScreenWidth;
-			const pixelHeight = worldScreenHeight / pixelsPerScreenHeight;
-
-			// 1. Project the current camera position along its local rotation bases
-			const camPos = new THREE.Vector3(); camera.getWorldPosition( camPos );
-			const camRot = new THREE.Quaternion(); camera.getWorldQuaternion( camRot );
-			const camRight = new THREE.Vector3( 1.0, 0.0, 0.0 ).applyQuaternion( camRot );
-			const camUp = new THREE.Vector3( 0.0, 1.0, 0.0 ).applyQuaternion( camRot );
-			const camPosRight = camPos.dot( camRight );
-			const camPosUp = camPos.dot( camUp );
-
-			// 2. Find how far along its position is along these bases in pixel units
-			const camPosRightPx = camPosRight / pixelWidth;
-			const camPosUpPx = camPosUp / pixelHeight;
-
-			// 3. Find the fractional pixel units and convert to world units
-			const fractX = camPosRightPx - Math.round( camPosRightPx );
-			const fractY = camPosUpPx - Math.round( camPosUpPx );
-
-			// 4. Add fractional world units to the left/right top/bottom to align with the pixel grid
-			camera.left = - aspectRatio - ( fractX * pixelWidth );
-			camera.right = aspectRatio - ( fractX * pixelWidth );
-			camera.top = 1.0 - ( fractY * pixelHeight );
-			camera.bottom = - 1.0 - ( fractY * pixelHeight );
-			camera.updateProjectionMatrix();
-
-		}
+load();
 
 	</script>
 </body>
