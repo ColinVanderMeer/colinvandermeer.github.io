@@ -67,7 +67,7 @@ tags:
   #bubbleText {
     position: absolute;
     width: 70%;
-    font-size: var(--font-size-lg);
+    font-size: 1.35vw;
     line-height: 1.4;
     margin: 0;
     padding: 0 1rem;
@@ -133,33 +133,6 @@ tags:
   .transcript-line {
     margin-bottom: var(--spacing-sm);
     line-height: 1.6;
-  }
-  
-  @media (max-width: 768px) {
-    #bubbleText {
-      font-size: var(--font-size-base);
-    }
-  }
-
-  @media (max-width: 640px) {
-    #bubbleText {
-      font-size: var(--font-size-sm);
-    }
-  }
-
-  @media (max-width: 575px) {
-    #bubbleText {
-      font-size: 0.6rem;
-    }
-    .mute-button {
-      padding: 0;
-    }
-  }
-
-  @media (max-width: 450px) {
-    #bubbleText {
-      font-size: 0.4rem;
-    }
   }
 </style>
 
