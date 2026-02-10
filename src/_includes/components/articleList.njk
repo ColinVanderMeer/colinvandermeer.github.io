@@ -7,7 +7,7 @@
 
               <span>-- Tags: 
                   {% for tag in article.data.tags %}
-                      <span class="tag"><a href="/blog/tagged/{{ tag }}/">{{ tag }}</a></span>{% if not loop.last %}, {% endif %}
+                      <span class="tag"><a href="/blog/tagged/{{ tag | lower | replace(' ', '-') }}/">{{ tag }}</a></span>{% if not loop.last %}, {% endif %}
                   {% endfor %}
               </span>
           {% endif %}
