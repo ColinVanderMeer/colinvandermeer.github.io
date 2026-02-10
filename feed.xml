@@ -4,11 +4,222 @@
   <subtitle>This is a longer description about your blog.</subtitle>
   <link href="https://colinvandermeer.github.io/public/feed.xml" rel="self" />
   <link href="https://colinvandermeer.github.io/" />
-  <updated>2025-07-23T00:00:00Z</updated>
+  <updated>2026-02-09T00:00:00Z</updated>
   <id>https://colinvandermeer.github.io/</id>
   <author>
     <name>Colin VanderMeer</name>
   </author>
+  <entry>
+    <title>UNBEATABLE Review</title>
+    <link href="https://colinvandermeer.github.io/blog/UnbeatableReview/" />
+    <updated>2026-02-09T00:00:00Z</updated>
+    <id>https://colinvandermeer.github.io/blog/UnbeatableReview/</id>
+    <content type="html">&lt;style&gt;
+  .treble-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .treble-box {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--color-secondary);
+    border-width: 5px;
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-radius: var(--radius-lg);
+    position: relative;
+    width: 90%;
+  }
+
+  .treble-character {
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .treble-character img {
+    height: 30vw;
+    object-fit: contain;
+  }
+
+  .treble-bubble {
+    flex: 1;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .treble-bubble &gt; div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .treble-bubble img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  #bubbleText {
+    position: absolute;
+    width: 70%;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0 1rem;
+    color: black;
+    font-weight: bold;
+    left: 22%;
+  }
+
+  .mute-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+  }
+
+  .mute-button:hover {
+    transform: scale(1.1);
+  }
+
+  .mute-button.muted {
+    opacity: 0.5;
+  }
+&lt;/style&gt;
+&lt;p&gt;I think something Treble says during Episode 4 really applies to the game as a whole.&lt;/p&gt;
+&lt;div class=&quot;treble-container&quot;&gt;
+  &lt;div class=&quot;treble-box&quot;&gt;
+    &lt;div class=&quot;treble-character&quot; id=&quot;trebleCharacter&quot;&gt;
+      &lt;img src=&quot;https://colinvandermeer.github.io/blog/unbeatable/trebleIdle.gif&quot; alt=&quot;treble&quot;&gt;
+    &lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;&lt;div class=&quot;treble-bubble&quot; id=&quot;trebleBubble&quot;&gt;
+&lt;div&gt;
+&lt;img src=&quot;https://colinvandermeer.github.io/blog/unbeatable/bubbleLeft.png&quot; alt=&quot;Speech bubble&quot;&gt;
+&lt;p id=&quot;bubbleText&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button class=&quot;mute-button&quot; id=&quot;muteButton&quot; aria-label=&quot;Toggle mute&quot;&gt;🔊&lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  const trebleSounds = [
+    &#39;/blog/unbeatable/treble1.mp3&#39;,
+    &#39;/blog/unbeatable/treble2.mp3&#39;,
+    &#39;/blog/unbeatable/treble3.mp3&#39;,
+    &#39;/blog/unbeatable/treble4.mp3&#39;,
+    &#39;/blog/unbeatable/treble5.mp3&#39;,
+    &#39;/blog/unbeatable/treble6.mp3&#39;
+  ];
+
+  const trebleLines = [
+    &#39;to me, and i really mean this honestly. it feels like the soul is missing from the thing.&#39;,
+    &#39;i&#92;&#39;m not some weird lo-fi purist, but it really is too clean.&#39;,
+    &#39;there&#92;&#39;s like... this energy&#92;&#39;s gone from it.&#39;,
+    &#39;y&#92;&#39;know, some messiness is &lt;em&gt;good&lt;/em&gt;.&#39;,
+    &#39;it&#92;&#39;s like... restoring a painting. you have to be careful because... you can scrape paint off alongside the dirt.&#39;,
+    &#39;and i think we do a little bit of our painting &lt;em&gt;with&lt;/em&gt; dirt.&#39;
+  ];
+
+  const bubbleImages = {
+    left: &#39;/blog/unbeatable/bubbleLeft.png&#39;,
+    middle: &#39;/blog/unbeatable/bubbleMiddle.png&#39;
+  };
+
+  let currentSoundIndex = 0;
+  let isMuted = false;
+  let isPlaying = false;
+  let bubbleAnimationId = null;
+  let currentBubble = &#39;left&#39;;
+
+  const trebleCharacter = document.getElementById(&#39;trebleCharacter&#39;);
+  const trebleBubble = document.getElementById(&#39;trebleBubble&#39;);
+  const muteButton = document.getElementById(&#39;muteButton&#39;);
+  const bubbleImg = trebleBubble.querySelector(&#39;img&#39;);
+  const bubbleText = document.getElementById(&#39;bubbleText&#39;);
+
+  function startBubbleAnimation() {
+    if (bubbleAnimationId) return;
+    
+    currentBubble = &#39;left&#39;;
+    bubbleImg.src = bubbleImages.left;
+    
+    bubbleAnimationId = setInterval(() =&gt; {
+      currentBubble = currentBubble === &#39;left&#39; ? &#39;middle&#39; : &#39;left&#39;;
+      bubbleImg.src = currentBubble === &#39;left&#39; ? bubbleImages.left : bubbleImages.middle;
+    }, 250);
+  }
+
+  function stopBubbleAnimation() {
+    if (bubbleAnimationId) {
+      clearInterval(bubbleAnimationId);
+      bubbleAnimationId = null;
+    }
+  }
+
+  function playSound() {
+    if (isPlaying) return;
+    if (currentSoundIndex == 6) {
+      currentSoundIndex = 0;
+      bubbleText.innerHTML = &quot;&quot;;
+      return;
+    }
+
+    isPlaying = true;
+    bubbleText.innerHTML = trebleLines[currentSoundIndex];
+    
+    const audio = new Audio(trebleSounds[currentSoundIndex]);
+    
+    if (!isMuted) {
+      audio.onplay = () =&gt; {
+        startBubbleAnimation();
+      };
+
+      audio.onended = () =&gt; {
+        stopBubbleAnimation();
+        bubbleImg.src = bubbleImages.left;
+        currentSoundIndex = currentSoundIndex + 1;
+        isPlaying = false;
+      };
+
+      audio.play().catch(err =&gt; console.error(&#39;Error playing sound:&#39;, err));
+    } else {
+      isPlaying = false;
+      currentSoundIndex = currentSoundIndex + 1;
+    }
+  }
+
+  trebleCharacter.addEventListener(&#39;click&#39;, () =&gt; {
+    playSound();
+  });
+
+  trebleBubble.addEventListener(&#39;click&#39;, () =&gt; {
+    playSound();
+  });
+
+  muteButton.addEventListener(&#39;click&#39;, () =&gt; {
+    isMuted = !isMuted;
+    muteButton.textContent = isMuted ? &#39;🔇&#39; : &#39;🔊&#39;;
+    muteButton.classList.toggle(&#39;muted&#39;);
+  });
+&lt;/script&gt;</content>
+  </entry>
   <entry>
     <title>100 Days of macOS</title>
     <link href="https://colinvandermeer.github.io/blog/100daysOfMacos/" />

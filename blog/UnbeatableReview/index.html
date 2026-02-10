@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UNBEATABLE Review</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin href="/assets/style-B_C66VVs.css">
+  </head>
+
+  <body>
+    <main role="main">
+      <div class="content">
+        <nav class="site-nav">
+  <a href="/" class="nav-link ">Home</a>
+  <a href="/blog/" class="nav-link is-active">Blog</a>
+  <!-- <a href="/status/" class="nav-link ">Status</a> -->
+  <a href="/projects/" class="nav-link ">Projects</a>
+  <a href="/about/" class="nav-link ">About</a>
+</nav>
+        
+<style>
+  .article {
+    margin: 40px 0;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .article-header {
+    border-bottom: 2px dotted var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-header p {
+    margin-bottom: 0px
+  }
+
+  .image-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+</style>
+
+<article class="article">
+  <div class="article-header">
+  <h1>UNBEATABLE Review</h1>
+  <p>
+    Published: <time>Feb 9 2026</time> 
+    
+    <span class="tags">
+      -- Tags: 
+      
+        <span class="tag"><a href="/blog/tagged/Game Review/">Game Review</a></span>
+      
+    </span>
+    
+  </p>
+  </div>
+  <style>
+  .treble-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .treble-box {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--color-secondary);
+    border-width: 5px;
+    border-color: var(--color-primary);
+    border-style: solid;
+    border-radius: var(--radius-lg);
+    position: relative;
+    width: 90%;
+  }
+
+  .treble-character {
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .treble-character img {
+    height: 30vw;
+    object-fit: contain;
+  }
+
+  .treble-bubble {
+    flex: 1;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .treble-bubble > div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .treble-bubble img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  #bubbleText {
+    position: absolute;
+    width: 70%;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0 1rem;
+    color: black;
+    font-weight: bold;
+    left: 22%;
+  }
+
+  .mute-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+  }
+
+  .mute-button:hover {
+    transform: scale(1.1);
+  }
+
+  .mute-button.muted {
+    opacity: 0.5;
+  }
+</style>
+<p>I think something Treble says during Episode 4 really applies to the game as a whole.</p>
+<div class="treble-container">
+  <div class="treble-box">
+    <div class="treble-character" id="trebleCharacter">
+      <img src="/blog/unbeatable/trebleIdle.gif" alt="treble" />
+    </div>
+<p><div class="treble-bubble" id="trebleBubble">
+<div>
+<img src="/blog/unbeatable/bubbleLeft.png" alt="Speech bubble" />
+<p id="bubbleText"></p>
+</div>
+</div></p>
+<p><button class="mute-button" id="muteButton" aria-label="Toggle mute">🔊</button></p>
+  </div>
+</div>
+<script>
+  const trebleSounds = [
+    '/blog/unbeatable/treble1.mp3',
+    '/blog/unbeatable/treble2.mp3',
+    '/blog/unbeatable/treble3.mp3',
+    '/blog/unbeatable/treble4.mp3',
+    '/blog/unbeatable/treble5.mp3',
+    '/blog/unbeatable/treble6.mp3'
+  ];
+
+  const trebleLines = [
+    'to me, and i really mean this honestly. it feels like the soul is missing from the thing.',
+    'i\'m not some weird lo-fi purist, but it really is too clean.',
+    'there\'s like... this energy\'s gone from it.',
+    'y\'know, some messiness is <em>good</em>.',
+    'it\'s like... restoring a painting. you have to be careful because... you can scrape paint off alongside the dirt.',
+    'and i think we do a little bit of our painting <em>with</em> dirt.'
+  ];
+
+  const bubbleImages = {
+    left: '/blog/unbeatable/bubbleLeft.png',
+    middle: '/blog/unbeatable/bubbleMiddle.png'
+  };
+
+  let currentSoundIndex = 0;
+  let isMuted = false;
+  let isPlaying = false;
+  let bubbleAnimationId = null;
+  let currentBubble = 'left';
+
+  const trebleCharacter = document.getElementById('trebleCharacter');
+  const trebleBubble = document.getElementById('trebleBubble');
+  const muteButton = document.getElementById('muteButton');
+  const bubbleImg = trebleBubble.querySelector('img');
+  const bubbleText = document.getElementById('bubbleText');
+
+  function startBubbleAnimation() {
+    if (bubbleAnimationId) return;
+    
+    currentBubble = 'left';
+    bubbleImg.src = bubbleImages.left;
+    
+    bubbleAnimationId = setInterval(() => {
+      currentBubble = currentBubble === 'left' ? 'middle' : 'left';
+      bubbleImg.src = currentBubble === 'left' ? bubbleImages.left : bubbleImages.middle;
+    }, 250);
+  }
+
+  function stopBubbleAnimation() {
+    if (bubbleAnimationId) {
+      clearInterval(bubbleAnimationId);
+      bubbleAnimationId = null;
+    }
+  }
+
+  function playSound() {
+    if (isPlaying) return;
+    if (currentSoundIndex == 6) {
+      currentSoundIndex = 0;
+      bubbleText.innerHTML = "";
+      return;
+    }
+
+    isPlaying = true;
+    bubbleText.innerHTML = trebleLines[currentSoundIndex];
+    
+    const audio = new Audio(trebleSounds[currentSoundIndex]);
+    
+    if (!isMuted) {
+      audio.onplay = () => {
+        startBubbleAnimation();
+      };
+
+      audio.onended = () => {
+        stopBubbleAnimation();
+        bubbleImg.src = bubbleImages.left;
+        currentSoundIndex = currentSoundIndex + 1;
+        isPlaying = false;
+      };
+
+      audio.play().catch(err => console.error('Error playing sound:', err));
+    } else {
+      isPlaying = false;
+      currentSoundIndex = currentSoundIndex + 1;
+    }
+  }
+
+  trebleCharacter.addEventListener('click', () => {
+    playSound();
+  });
+
+  trebleBubble.addEventListener('click', () => {
+    playSound();
+  });
+
+  muteButton.addEventListener('click', () => {
+    isMuted = !isMuted;
+    muteButton.textContent = isMuted ? '🔇' : '🔊';
+    muteButton.classList.toggle('muted');
+  });
+</script>
+</article>
+      </div>
+    </main>
+  </body>
+</html>
