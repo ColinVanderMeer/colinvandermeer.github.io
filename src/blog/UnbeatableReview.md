@@ -134,6 +134,33 @@ tags:
     margin-bottom: var(--spacing-sm);
     line-height: 1.6;
   }
+  
+  @media (max-width: 768px) {
+    #bubbleText {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  @media (max-width: 640px) {
+    #bubbleText {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  @media (max-width: 575px) {
+    #bubbleText {
+      font-size: 0.6rem;
+    }
+    .mute-button {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 450px) {
+    #bubbleText {
+      font-size: 0.4rem;
+    }
+  }
 </style>
 
 I think something Treble says during Episode 4 really applies to the game as a whole.
