@@ -110,6 +110,7 @@ tags:
     cursor: pointer;
     font-weight: bold;
     font-size: var(--font-size-sm);
+    color: black;
   }
 
   .transcript-section {
