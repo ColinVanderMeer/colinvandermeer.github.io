@@ -36,9 +36,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addLayoutAlias("page", "layouts/page");
     eleventyConfig.addLayoutAlias("article", "layouts/article");
 
-    // disables default adding folders for single html files
-    eleventyConfig.addGlobalData("permalink", "{{ page.filePathStem }}.html");
-
     eleventyConfig.addPlugin(EleventyVitePlugin);
 
     eleventyConfig.addPlugin(feedPlugin, {
