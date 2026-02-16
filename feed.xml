@@ -11,9 +11,9 @@
   </author>
   <entry>
     <title>UNBEATABLE Review</title>
-    <link href="https://colinvandermeer.github.io/blog/UnbeatableReview.html" />
+    <link href="https://colinvandermeer.github.io/blog/UnbeatableReview/" />
     <updated>2026-02-09T00:00:00Z</updated>
-    <id>https://colinvandermeer.github.io/blog/UnbeatableReview.html</id>
+    <id>https://colinvandermeer.github.io/blog/UnbeatableReview/</id>
     <content type="html">&lt;style&gt;
   .treble-container {
     display: flex;
@@ -283,9 +283,9 @@ So wisely said treble, and this is the reason you can see some white fringing ar
   </entry>
   <entry>
     <title>100 Days of macOS</title>
-    <link href="https://colinvandermeer.github.io/blog/100daysOfMacos.html" />
+    <link href="https://colinvandermeer.github.io/blog/100daysOfMacos/" />
     <updated>2025-07-23T00:00:00Z</updated>
-    <id>https://colinvandermeer.github.io/blog/100daysOfMacos.html</id>
+    <id>https://colinvandermeer.github.io/blog/100daysOfMacos/</id>
     <content type="html">&lt;p&gt;The first computer I ever used was a 2007 iMac. I used this computer almost exclusively for 11 years straight, only occasionally having an affair with a windows laptop we also had to run games on there that I couldn&#39;t on the Mac. In 2018 my family bought it&#39;s first desktop gaming computer and I said goodbye to my loyal macOS to jump headfirst into Windows 10.&lt;/p&gt;
 &lt;p&gt;After that day I didn&#39;t touch macOS for the next 6 years of my life. I had a Windows desktop, then a Chromebook, then a Windows laptop which then became a &lt;a href=&quot;https://colinvandermeer.github.io/blog/100daysOfLinux/&quot;&gt;Linux laptop&lt;/a&gt;. Though when that Linux laptop was becoming a bit of a pain to work with (see previous article) I heard that the new M4 MacBook Air was $100 USD cheaper and started at 16gb of ram I decided to fully embrace the apple ecosystem and finally go back to macOS.&lt;/p&gt;
 &lt;h2&gt;The Good&lt;/h2&gt;
@@ -312,9 +312,9 @@ So wisely said treble, and this is the reason you can see some white fringing ar
   </entry>
   <entry>
     <title>100 Days of Linux</title>
-    <link href="https://colinvandermeer.github.io/blog/100daysOfLinux.html" />
+    <link href="https://colinvandermeer.github.io/blog/100daysOfLinux/" />
     <updated>2025-07-22T00:00:00Z</updated>
-    <id>https://colinvandermeer.github.io/blog/100daysOfLinux.html</id>
+    <id>https://colinvandermeer.github.io/blog/100daysOfLinux/</id>
     <content type="html">&lt;p&gt;During my first year of High School I was gifted a Surface Laptop Go to help with my schoolwork. It was a pretty decent laptop with &lt;span title=&quot;The cooling on this laptop was atrocious. It was constantly full fan and thermal throttling if you tried to do anything. And the battery life barely lasted a day&quot; style=&quot;text-decoration: underline; text-decoration-style: dashed; cursor: help;&quot;&gt;some flaws&lt;/span&gt; but for that time in my life it was perfect. Unfortunately 3 years later it had slowed down to a crawl, it&#39;s initial startup would take upwards of two minutes and general navigation was becoming tedious.&lt;/p&gt;
 &lt;p&gt;This is when I had the idea to install Linux to breath some new life into this aging laptop. I had some general experience with Linux before, running Debian 10 through Crostini on ChromeOS to run a few select Linux apps (mostly games) and using Linux in a server setting to power the leaderboard for &lt;a href=&quot;https://colinvandermeer.github.io/projects/#FeedBluebell&quot;&gt;Feed Bluebell&lt;/a&gt;, but I&#39;d never &amp;quot;daily driven&amp;quot; Linux as my main OS.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://colinvandermeer.github.io/images/100Linux/Crostini.png&quot; alt=&quot;A screenshot of the Crostini terminal on ChromeOS&quot;&gt;
