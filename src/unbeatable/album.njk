@@ -1,0 +1,58 @@
+---
+permalink: /unbeatable/album.html
+layout: layouts/unbeatablePage.njk
+---
+
+<script src='https://fraigo.github.io/javascript-midi-player/midiplayer/WebAudioFontPlayer.js'></script>
+<script src='https://fraigo.github.io/javascript-midi-player/midiplayer/MIDIFile.js'></script>
+<script src='https://fraigo.github.io/javascript-midi-player/midiplayer/MIDIPlayer.js'></script>
+
+<script>
+    var mirrorPlayer = new MIDIPlayer("/unbeatable/mirror.mid")
+    var foreverNowPlayer = new MIDIPlayer("/unbeatable/foreverNow.mid")
+</script>
+<!-- Mirror and Forever Now midi's are by steelce on musescore
+    https://musescore.com/user/19156956/scores/31337048
+    https://musescore.com/user/19156956/scores/31658882
+    -->
+<h1>UNBEATABLE ALBUM</h1>
+<table>
+    <td>
+        <img src="cover.jpg" alt="Album Cover" height="384px" style="margin-right: 50px;">
+    </td>
+    <td><p>UNBEATABLE is working on a new album! Please enjoy some free preview tracks and make sure to check your local stores when it comes out.</p>
+</td>
+</table>
+<table>
+    <td>
+        <img src="cover.jpg" height="256px">
+    </td>
+    <td>
+        <h2>YEAH YEAH YEAH YEAH YEAH YEAH YEAH YEAH</h2>
+        <a href="/unbeatable/yeah.mp3">Yeah.mp3</a>
+    </td>
+</table>
+
+<table>
+    <td>
+        <img src="MIRROR_JACKET_ART.webp" height="256px">
+    </td>
+    <td>
+        <h2>Mirror</h2>
+        <button onclick="mirrorPlayer.play()">Play</button>
+        <button onclick="mirrorPlayer.pause()">Pause</button>
+        <button onclick="mirrorPlayer.stop()">Stop</button>
+    </td>
+</table>
+
+<table>
+    <td>
+        <img src="Forever_now.webp" height="256px">
+    </td>
+    <td>
+        <h2>Forever Now</h2>
+        <button onclick="foreverNowPlayer.play()">Play</button>
+        <button onclick="foreverNowPlayer.pause()">Pause</button>
+        <button onclick="foreverNowPlayer.stop()">Stop</button>
+    </td>
+</table>
