@@ -18,6 +18,12 @@ title: Projects
     margin-bottom: var(--spacing-sm);
     border-radius: var(--radius-md);
   }
+  .image-container video {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--radius-md);
+  }
   .two-image-container {
     display: flex;
     justify-content: center;
@@ -57,7 +63,7 @@ title: Projects
 <div class="project-container">
   <h2 id="SprigFishing">DIY Mocap & Full-Body Tracking</h2>
   <div class="image-container">
-    <img src="/projects/nikoFBT2.gif"/>
+    <video src="/projects/NikoFBT.mp4" autoplay loop muted playsinline></video>
   </div>
 
   <p>Custom built an experimental motion capture pipeline using inexpensive readily available consumer tracking devices (SlimeVR with Joy-Con sensors and Xbox Kinect via Amethyst) for live virtual avatar motion control. Calibrated different motion tracking systems to work in harmony and provide extra tracking data to each other. Worked around tracking challenges like sensor drift, joint occlusion, and latency.</p>
